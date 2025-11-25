@@ -1,22 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BAI Care Multi-Portal System</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BAI Care Healthcare Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<style>
+/* ===== GENERAL ===== */
+body { margin:0; font-family:'Roboto',sans-serif; background:#f7f9fb; color:#111; }
+header { background: linear-gradient(135deg,#078930,#00BFFF,#FFD700); color:white; padding:30px 20px; text-align:center; border-bottom-left-radius:50px; border-bottom-right-radius:50px; }
+header h1 { margin:0; font-size:2.5rem; }
+header p { margin-top:5px; font-size:1.1rem; opacity:0.9; }
+.navbar { display:flex; justify-content:center; gap:15px; background:#111; padding:12px 0; position:sticky; top:0; z-index:1000; }
+.navbar a { color:white; padding:10px 20px; text-decoration:none; font-weight:500; transition:0.3s; }
+.navbar a:hover { background:#078930; border-radius:8px; }
+.screen { display:none; padding:40px 20px; max-width:1200px; margin:auto; }
+.active { display:block; }
+h2 { font-size:2rem; margin-bottom:20px; color:#078930; text-align:center; }
+
+/* ===== CARDS ===== */
+.cards-horizontal { display:flex; justify-content:center; gap:25px; flex-wrap:wrap; }
+.card { background:white; padding:25px; border-radius:20px; width:280px; text-align:center; box-shadow:0 10px 30px rgba(0,0,0,0.15); transition:0.3s; }
+.card:hover { transform:scale(1.05); box-shadow:0 15px 40px rgba(0,0,0,0.25); }
+.card i { color:#078930; margin-bottom:15px; }
+.card-green { border-top:5px solid #078930; }
+.card-blue { border-top:5px solid #00BFFF; }
+.card-yellow { border-top:5px solid #FFD700; }
+
+/* ===== FORM ===== */
+.card-form { background:white; padding:30px; border-radius:20px; max-width:500px; margin:auto; box-shadow:0 10px 30px rgba(0,0,0,0.15); }
+.card-form label { display:block; margin-top:10px; font-weight:500; }
+.card-form select, .card-form input, .card-form textarea {
+  width:100%; padding:12px; margin-top:5px; border-radius:10px; border:1px solid #ccc;
+}
+.card-form input:focus, .card-form select:focus, .card-form textarea:focus { border-color:#078930; outline:none; box-shadow:0 0 8px rgba(7,137,48,0.3); }
+.btn { display:inline-block; padding:12px 25px; background: linear-gradient(45deg,#078930,#00BFFF,#FFD700); color:white; font-size:1rem; border:none; border-radius:25px; cursor:pointer; transition:0.3s; margin-top:15px; }
+.btn:hover { transform:scale(1.05); background:#078930; }
+
+/* FOOTER */
+footer { background:#111; color:white; text-align:center; padding:20px; border-radius:15px 15px 0 0; margin-top:40px; }
+
+/* RESPONSIVE */
+@media(max-width:768px){ .cards-horizontal{ flex-direction:column; align-items:center; } }
+</style>
 </head>
 <body>
 
+<!-- HEADER + NAV -->
+<header id="mainHeader" style="display:none;">
+  <h1>BAI Care</h1>
+  <p>Smart Healthcare Portal</p>
+  <nav class="navbar" id="navLinks"></nav>
+</header>
+
 <!-- LOGIN SCREEN -->
 <div id="loginScreen" class="screen active">
-  <h2>BAI Care Login</h2>
-  <form id="loginForm">
-    <label>Username</label>
-    <input type="text" id="username" required>
-    <label>Password</label>
-    <input type="password" id="password" required>
+  <h2>Login to BAI Care</h2>
+  <form id="loginForm" class="card-form">
+    <label>Username</label><input type="text" id="username" required>
+    <label>Password</label><input type="password" id="password" required>
     <label>Role</label>
     <select id="role" required>
       <option value="">Select role</option>
@@ -24,61 +67,138 @@
       <option value="doctor">Doctor</option>
       <option value="admin">Admin</option>
     </select>
-    <button type="submit">Login</button>
+    <button class="btn" type="submit">Login</button>
   </form>
 </div>
-
-<!-- HEADER -->
-<header id="mainHeader" style="display:none;">
-  <h1>BAI Care</h1>
-  <nav id="navLinks"></nav>
-</header>
 
 <!-- PATIENT DASHBOARD -->
 <div id="patientDashboard" class="screen">
-  <h2>Welcome, <span id="patientName">Patient</span>!</h2>
-  <div class="cards">
-    <div class="card card-green" onclick="showScreen('patientAppointment')">
-      <h3>Book Appointment</h3>
-    </div>
-    <div class="card card-blue" onclick="showScreen('patientQueue')">
-      <h3>Queue Status</h3>
-    </div>
-    <div class="card card-red" onclick="showScreen('patientTriage')">
-      <h3>AI Triage</h3>
-    </div>
+  <h2>Patient Dashboard</h2>
+  <div class="cards-horizontal">
+    <div class="card card-green" onclick="showScreen('appointmentScreen')"><i class="fas fa-calendar-check fa-2x"></i><h3>Book Appointment</h3></div>
+    <div class="card card-blue" onclick="showScreen('queueScreen')"><i class="fas fa-users fa-2x"></i><h3>Queue Status</h3></div>
+    <div class="card card-yellow" onclick="showScreen('triageScreen')"><i class="fas fa-stethoscope fa-2x"></i><h3>AI Triage</h3></div>
   </div>
 </div>
 
-<!-- PATIENT APPOINTMENT -->
-<div id="patientAppointment" class="screen">
+<!-- DOCTOR DASHBOARD -->
+<div id="doctorDashboard" class="screen">
+  <h2>Doctor Dashboard</h2>
+  <div class="cards-horizontal">
+    <div class="card card-blue" onclick="showScreen('queueScreen')"><i class="fas fa-users fa-2x"></i><h3>View Queue</h3></div>
+    <div class="card card-yellow" onclick="showScreen('triageScreen')"><i class="fas fa-stethoscope fa-2x"></i><h3>AI Triage Review</h3></div>
+  </div>
+</div>
+
+<!-- ADMIN DASHBOARD -->
+<div id="adminDashboard" class="screen">
+  <h2>Admin Dashboard</h2>
+  <div class="cards-horizontal">
+    <div class="card card-green"><i class="fas fa-users fa-2x"></i><h3>Manage Users</h3></div>
+    <div class="card card-blue"><i class="fas fa-hospital fa-2x"></i><h3>Manage Hospitals</h3></div>
+    <div class="card card-yellow"><i class="fas fa-calendar-check fa-2x"></i><h3>Manage Appointments</h3></div>
+  </div>
+</div>
+
+<!-- APPOINTMENT SCREEN -->
+<div id="appointmentScreen" class="screen">
   <h2>Book Appointment</h2>
-  <form id="appointmentForm">
-    <label>Country:</label>
-    <select id="countrySelect" required></select>
-    <label>Hospital:</label>
-    <select id="hospitalList" required></select>
-    <label>Date:</label>
-    <input type="date" id="appointmentDate" required>
-    <button type="submit">Confirm Appointment</button>
+  <form class="card-form" id="appointmentForm">
+    <label>Hospital</label>
+    <select id="hospital" required>
+      <option value="">Select Hospital</option>
+      <option value="Addis Ababa Hospital">Addis Ababa Hospital</option>
+      <option value="Mekelle Hospital">Mekelle Hospital</option>
+      <option value="Bahir Dar Hospital">Bahir Dar Hospital</option>
+    </select>
+    <label>Date</label><input type="date" id="appointmentDate" required>
+    <button class="btn" type="submit">Confirm Appointment</button>
   </form>
 </div>
 
-<!-- PATIENT TRIAGE -->
-<div id="patientTriage" class="screen">
+<!-- QUEUE SCREEN -->
+<div id="queueScreen" class="screen">
+  <h2>Queue Status</h2>
+  <div class="cards-horizontal">
+    <div class="card card-green"><h3>Patient #1</h3></div>
+    <div class="card card-blue"><h3>Patient #2</h3></div>
+    <div class="card card-yellow"><h3>Patient #3</h3></div>
+  </div>
+</div>
+
+<!-- TRIAGE SCREEN -->
+<div id="triageScreen" class="screen">
   <h2>AI Triage</h2>
-  <form id="triageForm">
-    <label>Describe your symptoms:</label>
-    <textarea id="symptoms" placeholder="Enter symptoms" required></textarea>
-    <button type="submit">Submit</button>
+  <form class="card-form" id="triageForm">
+    <label>Fever?</label>
+    <select id="fever" required><option value="">Select</option><option value="yes">Yes</option><option value="no">No</option></select>
+    <label>Cough?</label>
+    <select id="cough" required><option value="">Select</option><option value="yes">Yes</option><option value="no">No</option></select>
+    <button class="btn" type="submit">Submit</button>
   </form>
-  <div id="triageResult"></div>
+  <p id="triageResult"></p>
 </div>
 
-<!-- Placeholder screens for Doctor/Admin -->
-<div id="doctorDashboard" class="screen"><h2>Doctor Dashboard</h2></div>
-<div id="adminDashboard" class="screen"><h2>Admin Dashboard</h2></div>
+<footer>
+  <p>© 2025 BAI Care — All Rights Reserved</p>
+</footer>
 
-<script src="script.js"></script>
+<script>
+// SHOW SCREEN FUNCTION
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.getElementById('mainHeader').style.display='block';
+}
+
+// LOGIN FORM
+document.getElementById('loginForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const role = document.getElementById('role').value;
+  const nav = document.getElementById('navLinks');
+  if(role==='patient'){
+    showScreen('patientDashboard');
+    nav.innerHTML=`<a href="#" onclick="showScreen('patientDashboard')">Home</a>
+                   <a href="#" onclick="showScreen('appointmentScreen')">Book Appointment</a>
+                   <a href="#" onclick="showScreen('queueScreen')">Queue</a>
+                   <a href="#" onclick="showScreen('triageScreen')">AI Triage</a>
+                   <a href="#" onclick="logout()">Logout</a>`;
+  } else if(role==='doctor'){
+    showScreen('doctorDashboard');
+    nav.innerHTML=`<a href="#" onclick="showScreen('doctorDashboard')">Home</a>
+                   <a href="#" onclick="showScreen('queueScreen')">Queue</a>
+                   <a href="#" onclick="showScreen('triageScreen')">AI Triage Review</a>
+                   <a href="#" onclick="logout()">Logout</a>`;
+  } else if(role==='admin'){
+    showScreen('adminDashboard');
+    nav.innerHTML=`<a href="#" onclick="showScreen('adminDashboard')">Home</a>
+                   <a href="#" onclick="logout()">Logout</a>`;
+  }
+});
+
+function logout(){
+  showScreen('loginScreen');
+  document.getElementById('mainHeader').style.display='none';
+}
+
+// TRIAGE FORM
+document.getElementById('triageForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const fever = document.getElementById('fever').value;
+  const cough = document.getElementById('cough').value;
+  let result = "Mild symptoms. Rest and hydrate.";
+  if(fever==="yes" && cough==="yes") result="High risk! See doctor immediately!";
+  document.getElementById('triageResult').textContent = result;
+});
+
+// APPOINTMENT FORM
+document.getElementById('appointmentForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  alert("Appointment confirmed!");
+  showScreen('patientDashboard');
+});
+</script>
 </body>
 </html>
+
+
