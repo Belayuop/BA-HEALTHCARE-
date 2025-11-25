@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health AI Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="mainHeader" class="hidden">
+    <h1>Health AI Platform</h1>
+    <nav id="nav"></nav>
+  </header>
+
+  <!-- Screens / Pages -->
+  <div id="screens">
+
+    <!-- Login Screen -->
+    <div id="loginScreen" class="screen">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="email" id="email" placeholder="Email" required><br>
+        <input type="password" id="password" placeholder="Password" required><br>
+        <select id="roleSelect">
+          <option value="patient">Patient</option>
+          <option value="doctor">Doctor</option>
+          <option value="admin">Admin</option>
+        </select><br>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+
+    <!-- Patient Screens -->
+    <div id="patientDashboard" class="screen hidden">
+      <h2>Patient Dashboard</h2>
+      <p>Welcome, Patient!</p>
+    </div>
+
+    <div id="patientAppointment" class="screen hidden">
+      <h2>Book Appointment</h2>
+      <form id="appointmentForm">
+        <label>Country:</label>
+        <select id="countrySelect" required></select><br>
+        <label>Hospital:</label>
+        <select id="hospitalList" required></select><br>
+        <label>Date:</label>
+        <input type="date" id="appointmentDate" required><br>
+        <button type="submit">Confirm Appointment</button>
+      </form>
+    </div>
+
+    <div id="patientQueue" class="screen hidden">
+      <h2>Your Queue</h2>
+      <p>No patients in queue yet.</p>
+    </div>
+
+    <div id="patientTriage" class="screen hidden">
+      <h2>AI Triage</h2>
+      <form id="triageForm">
+        <label>Describe your symptoms:</label><br>
+        <textarea id="symptoms" placeholder="Enter symptoms" required></textarea><br>
+        <button type="submit">Get Triage</button>
+      </form>
+      <div id="triageResult"></div>
+    </div>
+
+    <!-- Doctor Screens -->
+    <div id="doctorDashboard" class="screen hidden">
+      <h2>Doctor Dashboard</h2>
+      <p>Welcome, Doctor!</p>
+    </div>
+
+    <div id="doctorQueue" class="screen hidden">
+      <h2>Patient Queue</h2>
+    </div>
+
+    <div id="doctorTriage" class="screen hidden">
+      <h2>AI Triage Results</h2>
+    </div>
+
+    <!-- Admin Screens -->
+    <div id="adminDashboard" class="screen hidden">
+      <h2>Admin Dashboard</h2>
+    </div>
+
+    <div id="adminUsers" class="screen hidden">
+      <h2>Manage Users</h2>
+    </div>
+
+    <div id="adminHospitals" class="screen hidden">
+      <h2>Manage Hospitals</h2>
+    </div>
+
+    <div id="adminAppointments" class="screen hidden">
+      <h2>Manage Appointments</h2>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
