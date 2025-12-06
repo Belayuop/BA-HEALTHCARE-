@@ -8,6 +8,45 @@ for(let i=0;i<coll.length;i++){
         else { content.style.display="block"; }
     });
 }
+// Collapsible multi-step form
+const nextBtns = document.querySelectorAll('.next-step');
+const prevBtns = document.querySelectorAll('.prev-step');
+const formSteps = document.querySelectorAll('.form-step');
+let currentStep = 0;
+
+nextBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        formSteps[currentStep].classList.remove('active');
+        currentStep++;
+        formSteps[currentStep].classList.add('active');
+    });
+});
+prevBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        formSteps[currentStep].classList.remove('active');
+        currentStep--;
+        formSteps[currentStep].classList.add('active');
+    });
+});
+
+// Chat functionality (simple AI placeholder)
+const chatBox = document.getElementById('chatBox');
+const chatInput = document.getElementById('chatInput');
+const sendChat = document.getElementById('sendChat');
+
+sendChat.addEventListener('click', () => {
+    let userMsg = chatInput.value.trim();
+    if(userMsg){
+        chatBox.innerHTML += `<p><strong>You:</strong> ${userMsg}</p>`;
+        // Simple AI reply
+        setTimeout(() => {
+            chatBox.innerHTML += `<p><strong>AI Doctor:</strong> Thank you for your message. Our doctor will review and respond shortly.</p>`;
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }, 1000);
+        chatInput.value = '';
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+});
 
 // Patient Form Submission
 document.getElementById("patientForm").addEventListener("submit",function(e){
@@ -63,3 +102,4 @@ document.getElementById("searchAdmin").addEventListener("input",function(){
             .forEach(p=>html+=`<li>${p.id} - ${p.name}</li>`);
     document.getElementById("adminList").innerHTML=html;
 });
+
