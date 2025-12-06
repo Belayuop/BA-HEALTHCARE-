@@ -1,127 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MyHealthID Portal</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyHealthID Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Flag_of_Ethiopia.svg" class="ethiopian-flag" alt="Ethiopia Flag">
-  <span class="logo-text">MyHealthID Portal</span>
+  <div class="logo">
+    <img src="images/ethiopian-flag.png" alt="Ethiopian Flag">
+    <h1>MyHealthID</h1>
+  </div>
   <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#login">Login</a>
-    <a href="#register">Patient ID</a>
-    <a href="#dashboard">Dashboard</a>
-    <a href="#appointments">Appointments</a>
-    <a href="#chat">Chat</a>
-    <a href="#history">Medical History</a>
-    <a href="#admin">Admin</a>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#patient">Patient ID</a></li>
+      <li><a href="#chat">Chat</a></li>
+      <li><a href="#appointment">Appointments</a></li>
+      <li><a href="#history">Medical History</a></li>
+      <li><a href="#admin">Admin</a></li>
+    </ul>
   </nav>
 </header>
 
-<section id="home" class="fade-in">
-  <h2>Welcome to MyHealthID</h2>
-  <p>Your nationwide patient identification and medication safety system. Secure, reliable, and connected healthcare for Ethiopia.</p>
-  <img src="https://cdn.pixabay.com/photo/2018/03/10/23/48/doctor-3217475_960_720.jpg" class="home-img">
-</section>
-
-<section id="about" class="fade-in">
-  <h2>About MyHealthID</h2>
-  <p>We provide a unique patient ID, track medications, alert for drug interactions, and allow online/offline access. Our goal is to prevent errors, save lives, and improve continuity of care across Ethiopia.</p>
-</section>
-
-<section id="register" class="fade-in">
-  <h2>Patient Registration</h2>
-  <form id="fullPatientForm" enctype="multipart/form-data">
-    <h3>Personal Information</h3>
-    <input type="text" name="name" placeholder="Full Name" required>
-    <input type="number" name="age" placeholder="Age" required>
-    <select name="sex" required>
-      <option value="">Select Sex</option>
-      <option>Male</option>
-      <option>Female</option>
-      <option>Other</option>
-    </select>
-    <input type="text" name="religion" placeholder="Religion">
-    <input type="text" name="occupation" placeholder="Occupation">
-    <input type="text" name="maritalStatus" placeholder="Marital Status">
-    <input type="text" name="eduStatus" placeholder="Educational Status">
-    
-    <h3>Clinical History</h3>
-    <textarea name="chiefComplaint" placeholder="Chief Complaint"></textarea>
-    <textarea name="hpi" placeholder="History of Present Illness"></textarea>
-    <textarea name="pastMedicalHistory" placeholder="Past Medical History"></textarea>
-    <textarea name="medicationsTaken" placeholder="Medications Taken"></textarea>
-    
-    <label>Upload National ID (Scan/Photo)</label>
-    <input type="file" name="nid" accept="image/*,application/pdf" required>
-    <label>Upload Profile Photo</label>
-    <input type="file" name="photo" accept="image/*">
-    
-    <label><input type="checkbox" required> I consent to store my data securely for medical use.</label>
-    <button type="submit">Submit Registration</button>
-  </form>
-</section>
-
-<section id="dashboard" class="fade-in">
-  <h2>Dashboard</h2>
-  <div class="dashboard">
-    <div class="card">
-      <img src="https://cdn.pixabay.com/photo/2016/11/29/03/53/ai-1869301_960_720.png" alt="AI Health">
-      <h3>AI Health Tips</h3>
-      <p>Personalized AI-based health recommendations.</p>
-    </div>
-    <div class="card">
-      <img src="https://cdn.pixabay.com/photo/2017/12/10/14/47/appointment-3013938_960_720.jpg" alt="Appointments">
-      <h3>Appointments</h3>
-      <p>Manage your clinic visits and follow-ups.</p>
-    </div>
-    <div class="card">
-      <img src="https://cdn.pixabay.com/photo/2017/12/27/01/31/chat-3040113_960_720.png" alt="Chat">
-      <h3>Chat with Doctor</h3>
-      <p>Ask questions securely and get advice online.</p>
-    </div>
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-content">
+    <h2 class="fade-in">Welcome to MyHealthID</h2>
+    <p class="fade-in">Secure Patient ID, Medication Safety & Health Management Portal</p>
+    <img src="images/hero-ai-healthcare.jpg" alt="AI Healthcare" class="hero-image">
   </div>
 </section>
 
-<section id="appointments" class="fade-in">
-  <h2>Appointments</h2>
-  <form>
-    <input type="date" name="appointmentDate" required>
-    <input type="time" name="appointmentTime" required>
-    <textarea name="reason" placeholder="Reason for Appointment"></textarea>
-    <button type="submit">Book Appointment</button>
-  </form>
+<!-- ABOUT -->
+<section id="about" class="section fade-in">
+  <h2>About MyHealthID</h2>
+  <p>MyHealthID provides a unique patient ID linking medical history, prescriptions, lab results, and appointments. Doctors can track drug interactions, communicate online/offline, and ensure continuity of care. Designed for Ethiopia, scalable worldwide.</p>
 </section>
 
-<section id="chat" class="fade-in">
+<!-- PATIENT REGISTRATION -->
+<section id="patient" class="section fade-in">
+  <h2>Patient Registration</h2>
+  <button class="collapsible">Register New Patient</button>
+  <div class="content">
+    <form id="patientForm">
+      <h3>Identification</h3>
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="number" name="age" placeholder="Age" required>
+      <select name="sex" required>
+        <option value="">Select Sex</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+      <input type="text" name="religion" placeholder="Religion">
+      <input type="text" name="occupation" placeholder="Occupation">
+      <input type="text" name="maritalStatus" placeholder="Marital Status">
+      <input type="text" name="eduStatus" placeholder="Educational Status">
+
+      <h3>Medical History</h3>
+      <textarea name="chiefComplaint" placeholder="Chief Complaint"></textarea>
+      <textarea name="pastMedicalHistory" placeholder="Past Medical History"></textarea>
+      <input type="date" name="dateOfAdmission">
+
+      <h3>Uploads</h3>
+      <label>National ID Scan/Photo</label>
+      <input type="file" name="nid" accept="image/*,application/pdf">
+      <label>Profile Photo</label>
+      <input type="file" name="photo" accept="image/*">
+
+      <button type="submit" class="submit-btn">Submit Registration</button>
+    </form>
+  </div>
+</section>
+
+<!-- CHAT -->
+<section id="chat" class="section fade-in">
   <h2>Chat with Doctor</h2>
-  <div id="chatBox" class="chat-box"></div>
-  <input type="text" id="userMsg" placeholder="Type your question..." class="chat-input">
-  <button onclick="sendMessage()" class="chat-btn">Send</button>
+  <div class="chat-container">
+    <div id="chatBox" class="chat-box"></div>
+    <input type="text" id="chatInput" placeholder="Ask your question...">
+    <button id="sendChat">Send</button>
+  </div>
 </section>
 
-<section id="history" class="fade-in">
+<!-- APPOINTMENTS -->
+<section id="appointment" class="section fade-in">
+  <h2>Appointments</h2>
+  <input type="date" id="apptDate">
+  <input type="time" id="apptTime">
+  <button id="bookAppt">Book Appointment</button>
+  <ul id="apptList"></ul>
+</section>
+
+<!-- MEDICAL HISTORY -->
+<section id="history" class="section fade-in">
   <h2>Medical History</h2>
-  <div id="medicalHistory"></div>
+  <input type="text" id="searchPatient" placeholder="Search by Patient ID or Name">
+  <ul id="historyList"></ul>
 </section>
 
-<section id="admin" class="fade-in">
+<!-- ADMIN -->
+<section id="admin" class="section fade-in">
   <h2>Admin Portal</h2>
-  <input type="text" id="searchPatient" placeholder="Enter Patient Name or ID">
-  <button onclick="searchPatient()">Search</button>
-  <div id="adminResults"></div>
+  <input type="text" id="searchAdmin" placeholder="Search Patient">
+  <ul id="adminList"></ul>
 </section>
-
-<footer>
-  MyHealthID &copy; 2025 - Ethiopia
-</footer>
 
 <script src="script.js"></script>
 </body>
