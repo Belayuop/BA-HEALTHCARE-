@@ -1,54 +1,65 @@
-
-// Scroll fade-in animation
-const sections = document.querySelectorAll('section');
-window.addEventListener('scroll',()=>{
-  sections.forEach(section=>{
-    if(window.scrollY + window.innerHeight - 100 > section.offsetTop){
-      section.classList.add('visible');
-    }
-  });
-});
-
-// Registration form
-document.getElementById('fullPatientForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  let formData = new FormData(this);
-  let uniqueID = 'MH' + Date.now();
-  formData.append('patientID', uniqueID);
-  let patients = JSON.parse(localStorage.getItem('patients') || '[]');
-  patients.push(Object.fromEntries(formData));
-  patients.sort((a,b)=>a.name.localeCompare(b.name));
-  localStorage.setItem('patients', JSON.stringify(patients));
-  alert('Registration submitted! Your Patient ID: ' + uniqueID);
-  this.reset();
-});
-
-// Chat simulation
-function sendMessage(){
-  let msg = document.getElementById('userMsg').value;
-  if(!msg) return;
-  let chatBox = document.getElementById('chatBox');
-  chatBox.innerHTML += `<p><b>You:</b> ${msg}</p>`;
-  chatBox.innerHTML += `<p><b>AI Doctor:</b> Simulated advice for your query. Doctor will follow up.</p>`;
-  chatBox.scrollTop = chatBox.scrollHeight;
-  document.getElementById('userMsg').value='';
+// Collapsible Sections
+let coll = document.getElementsByClassName("collapsible");
+for(let i=0;i<coll.length;i++){
+    coll[i].addEventListener("click",function(){
+        this.classList.toggle("active");
+        let content=this.nextElementSibling;
+        if(content.style.display==="block"){ content.style.display="none"; }
+        else { content.style.display="block"; }
+    });
 }
 
-// Admin search
-function searchPatient(){
-  let query = document.getElementById('searchPatient').value.toLowerCase();
-  let patients = JSON.parse(localStorage.getItem('patients') || '[]');
-  let results = patients.filter(p=>p.name.toLowerCase().includes(query) || p.patientID.toLowerCase().includes(query));
-  let html = '';
-  results.forEach(p=>{
-    html += `<div style="border:1px solid #ccc;padding:10px;margin:10px;border-radius:10px;">
-      <p><b>ID:</b> ${p.patientID}</p>
-      <p><b>Name:</b> ${p.name}</p>
-      <p><b>Age:</b> ${p.age}</p>
-      <p><b>Sex:</b> ${p.sex}</p>
-      <p><b>Chief Complaint:</b> ${p.chiefComplaint || 'N/A'}</p>
-    </div>`;
-  });
-  document.getElementById('adminResults').innerHTML = html || 'No results found.';
-}
+// Patient Form Submission
+document.getElementById("patientForm").addEventListener("submit",function(e){
+    e.preventDefault();
+    const formData = new FormData(this);
+    let patient = {};
+    formData.forEach((value,key)=>patient[key]=value);
+    patient.id = "PID"+Math.floor(Math.random()*100000);
+    let patients = JSON.parse(localStorage.getItem("patients")||"[]");
+    patients.push(patient);
+    localStorage.setItem("patients",JSON.stringify(patients));
+    alert("Patient Registered! ID: "+patient.id);
+    this.reset();
+});
 
+// Chat Simulation
+const chatBox=document.getElementById("chatBox");
+document.getElementById("sendChat").addEventListener("click",function(){
+    let input=document.getElementById("chatInput").value;
+    if(input.trim()==="") return;
+    chatBox.innerHTML+="<p><strong>You:</strong> "+input+"</p>";
+    document.getElementById("chatInput").value="";
+    setTimeout(()=>{ chatBox.innerHTML+="<p><strong>Doctor:</strong> Thank you for your question. We'll review your history and respond.</p>"; chatBox.scrollTop=chatBox.scrollHeight; },800);
+});
+
+// Appointment Booking
+document.getElementById("bookAppt").addEventListener("click",function(){
+    let date=document.getElementById("apptDate").value;
+    let time=document.getElementById("apptTime").value;
+    if(!date||!time){ alert("Select date and time"); return;}
+    let appts=JSON.parse(localStorage.getItem("appointments")||"[]");
+    appts.push({date,time});
+    localStorage.setItem("appointments",JSON.stringify(appts));
+    document.getElementById("apptList").innerHTML+=`<li>${date} at ${time}</li>`;
+});
+
+// Medical History Search
+document.getElementById("searchPatient").addEventListener("input",function(){
+    let val=this.value.toLowerCase();
+    let patients=JSON.parse(localStorage.getItem("patients")||"[]");
+    let html="";
+    patients.filter(p=>p.name.toLowerCase().includes(val)||p.id.toLowerCase().includes(val))
+            .forEach(p=>html+=`<li>${p.id} - ${p.name}</li>`);
+    document.getElementById("historyList").innerHTML=html;
+});
+
+// Admin Search
+document.getElementById("searchAdmin").addEventListener("input",function(){
+    let val=this.value.toLowerCase();
+    let patients=JSON.parse(localStorage.getItem("patients")||"[]");
+    let html="";
+    patients.filter(p=>p.name.toLowerCase().includes(val)||p.id.toLowerCase().includes(val))
+            .forEach(p=>html+=`<li>${p.id} - ${p.name}</li>`);
+    document.getElementById("adminList").innerHTML=html;
+});
