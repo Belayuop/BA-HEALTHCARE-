@@ -1,23 +1,31 @@
-*{box-sizing:border-box;margin:0;padding:0;font-family:'Roboto',sans-serif;}
-body{background:#f4f7f9;}
-header{background:#0055A4;color:white;padding:20px;text-align:center;position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;}
-header img{height:40px;}
-header .logo-text{font-size:24px;font-weight:bold;}
-nav a{color:white;margin:0 10px;text-decoration:none;font-weight:500;transition:0.3s;}
-nav a:hover{text-decoration:underline;color:#00B388;}
-section{padding:50px; max-width:1200px; margin:auto; border-radius:15px; opacity:0; transform:translateY(20px); transition:all 1s ease;}
-section.fade-in.visible{opacity:1; transform:translateY(0);}
-h2,h3{margin-bottom:20px;color:#0055A4;}
-form input, form select, form textarea{width:100%;padding:10px;margin:8px 0;border:1px solid #ccc;border-radius:5px;transition:0.3s;}
-form input:focus, form select:focus, form textarea:focus{border-color:#00B388; outline:none;}
-form button{background:#00B388;color:white;padding:15px 30px;border:none;border-radius:5px;font-weight:bold;cursor:pointer;transition:0.3s;}
-form button:hover{background:#00976B; transform:scale(1.05);}
-.dashboard{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:30px;}
-.card{background:white;padding:20px;border-radius:15px;box-shadow:0 4px 10px rgba(0,0,0,0.1);text-align:center;transition:0.3s;}
-.card:hover{transform:translateY(-10px) scale(1.05); box-shadow:0 8px 20px rgba(0,0,0,0.2);}
-.card img{width:80px;margin-bottom:10px;}
-.chat-box{border:1px solid #ccc;border-radius:10px;padding:10px;max-height:400px;overflow-y:auto;margin-bottom:10px; background:#fff;}
-.chat-input{width:80%;padding:10px;}
-.chat-btn{padding:10px;background:#00B388;color:white;border:none;border-radius:5px;cursor:pointer;}
-footer{text-align:center;padding:20px;background:#0055A4;color:white;margin-top:50px;}
-.ethiopian-flag{height:25px;vertical-align:middle;margin-left:10px;}
+/* GOOGLE FONT */
+body { font-family: 'Roboto', sans-serif; margin:0; padding:0; }
+header { display:flex; justify-content:space-between; align-items:center; padding:10px 50px; background: linear-gradient(90deg,#1abc9c,#3498db,#e91e63); color:white; }
+header .logo img { width:40px; margin-right:10px; vertical-align:middle; }
+header nav ul { list-style:none; display:flex; margin:0; padding:0; }
+header nav ul li { margin:0 15px; }
+header nav ul li a { color:white; text-decoration:none; font-weight:bold; transition:0.3s; }
+header nav ul li a:hover { color:yellow; }
+
+.hero { position:relative; text-align:center; padding:100px 20px; background: linear-gradient(to right,#3498db,#1abc9c,#e91e63); color:white; }
+.hero .hero-image { width:50%; margin-top:20px; border-radius:10px; animation: fadeIn 2s ease-in-out; }
+.section { padding:50px 20px; max-width:1000px; margin:auto; background:#f9f9f9; margin-bottom:20px; border-radius:10px; box-shadow:0 0 20px rgba(0,0,0,0.1);}
+h2 { text-align:center; margin-bottom:30px; color:#333; }
+.collapsible { background:#3498db; color:white; cursor:pointer; padding:10px 20px; width:100%; border:none; text-align:left; outline:none; font-size:16px; border-radius:5px; margin-bottom:10px; transition:0.3s;}
+.collapsible:hover { background:#1abc9c; }
+.content { padding:0 15px; display:none; overflow:hidden; background:#e0f7fa; border-radius:5px; }
+input, select, textarea { width:100%; padding:10px; margin:8px 0; border-radius:5px; border:1px solid #ccc; }
+.submit-btn { background:#e91e63; color:white; padding:10px 20px; border:none; border-radius:5px; cursor:pointer; transition:0.3s;}
+.submit-btn:hover { background:#c2185b; }
+.chat-container { max-width:600px; margin:auto; background:#fff; border-radius:10px; padding:10px; box-shadow:0 0 15px rgba(0,0,0,0.1);}
+.chat-box { height:200px; overflow-y:auto; border:1px solid #ccc; padding:10px; margin-bottom:10px; border-radius:5px; background:#f1f1f1; }
+#chatInput { width:75%; display:inline-block; }
+#sendChat { width:20%; display:inline-block; background:#3498db; color:white; border:none; border-radius:5px; cursor:pointer; }
+#sendChat:hover { background:#1abc9c; }
+
+/* Animations */
+.fade-in { opacity:0; animation:fadeIn 2s forwards; }
+@keyframes fadeIn { to { opacity:1; } }
+
+/* Responsive */
+@media screen and (max-width:768px){ header { flex-direction:column; } nav ul { flex-direction:column; } nav ul li { margin:5px 0; } }
