@@ -15,7 +15,138 @@
     <img src="images/ethiopian-flag.png" alt="Ethiopian Flag">
     <h1>MyHealthID</h1>
   </div>
-  <nav>
+  <nav><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyHealthID - AI Health Portal</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">
+        <img src="ethiopian-flag.png" alt="Ethiopia Flag">
+        <h1>MyHealthID</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#patientForm">Patient ID</a></li>
+            <li><a href="#chat">Chat With Doctor</a></li>
+            <li><a href="#appointments">Appointments</a></li>
+            <li><a href="#history">Medical History</a></li>
+            <li><a href="#admin">Admin</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <h2>Smart Health & Technology for Ethiopia</h2>
+    <p>Your life-saving digital health portal</p>
+    <img src="ai-health.png" alt="AI Health">
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+    <h2>About MyHealthID</h2>
+    <p>MyHealthID is a nationwide digital health platform connecting patients, doctors, and clinics. Using AI-powered insights, secure patient IDs, and interactive portals, it improves healthcare delivery and continuity of care.</p>
+</section>
+
+<!-- PATIENT REGISTRATION FORM -->
+<section class="section" id="patientForm">
+    <h2>Patient Registration</h2>
+    <div class="multi-step-form">
+        <!-- Step 1 -->
+        <div class="form-step active">
+            <h3>Identification</h3>
+            <input type="text" placeholder="Full Name">
+            <input type="number" placeholder="Age">
+            <select>
+                <option value="">Sex</option>
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+            <input type="text" placeholder="Religion">
+            <input type="text" placeholder="Occupation">
+            <button class="next-step">Next</button>
+        </div>
+        <!-- Step 2 -->
+        <div class="form-step">
+            <h3>History & Chief Complaint</h3>
+            <textarea placeholder="Chief Complaint"></textarea>
+            <textarea placeholder="HPI"></textarea>
+            <textarea placeholder="Past Medical History"></textarea>
+            <button class="prev-step">Back</button>
+            <button class="next-step">Next</button>
+        </div>
+        <!-- Step 3 -->
+        <div class="form-step">
+            <h3>Medications & Arrival</h3>
+            <textarea placeholder="Medications taken & Effect"></textarea>
+            <textarea placeholder="Mode of Arrival to Hospital"></textarea>
+            <input type="file" placeholder="National ID / Photo">
+            <button class="prev-step">Back</button>
+            <button class="submit-btn">Submit</button>
+        </div>
+    </div>
+</section>
+
+<!-- CHAT -->
+<section class="section" id="chat">
+    <h2>Chat With Doctor</h2>
+    <div class="chat-container">
+        <div class="chat-box" id="chatBox"></div>
+        <input type="text" id="chatInput" placeholder="Ask a question...">
+        <button id="sendChat">Send</button>
+    </div>
+</section>
+
+<!-- APPOINTMENTS -->
+<section class="section" id="appointments">
+    <h2>Appointments</h2>
+    <ul id="apptList">
+        <li>Dr. Smith - 12 Dec 2025 - 10:00 AM</li>
+        <li>Dr. Hana - 13 Dec 2025 - 11:00 AM</li>
+    </ul>
+</section>
+
+<!-- MEDICAL HISTORY -->
+<section class="section" id="history">
+    <h2>Medical History</h2>
+    <ul id="historyList">
+        <li>John Doe - Diabetes - 2024</li>
+        <li>Mary T. - Hypertension - 2025</li>
+    </ul>
+</section>
+
+<!-- ADMIN -->
+<section class="section" id="admin">
+    <h2>Admin Panel</h2>
+    <ul id="adminList">
+        <li>Patient Management</li>
+        <li>Doctor Management</li>
+        <li>Reports & Analytics</li>
+    </ul>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+    <h2>Contact</h2>
+    <p>Phone: +251980353791 | +251980354112</p>
+    <p>Email: info@myhealthid.et</p>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
+
     <ul>
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
@@ -115,3 +246,4 @@
 <script src="script.js"></script>
 </body>
 </html>
+
