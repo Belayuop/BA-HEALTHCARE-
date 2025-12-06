@@ -1,204 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BAI Care Healthcare Portal</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-<style>
-/* ===== GENERAL ===== */
-body { margin:0; font-family:'Roboto',sans-serif; background:#f7f9fb; color:#111; }
-header { background: linear-gradient(135deg,#078930,#00BFFF,#FFD700); color:white; padding:30px 20px; text-align:center; border-bottom-left-radius:50px; border-bottom-right-radius:50px; }
-header h1 { margin:0; font-size:2.5rem; }
-header p { margin-top:5px; font-size:1.1rem; opacity:0.9; }
-.navbar { display:flex; justify-content:center; gap:15px; background:#111; padding:12px 0; position:sticky; top:0; z-index:1000; }
-.navbar a { color:white; padding:10px 20px; text-decoration:none; font-weight:500; transition:0.3s; }
-.navbar a:hover { background:#078930; border-radius:8px; }
-.screen { display:none; padding:40px 20px; max-width:1200px; margin:auto; }
-.active { display:block; }
-h2 { font-size:2rem; margin-bottom:20px; color:#078930; text-align:center; }
-
-/* ===== CARDS ===== */
-.cards-horizontal { display:flex; justify-content:center; gap:25px; flex-wrap:wrap; }
-.card { background:white; padding:25px; border-radius:20px; width:280px; text-align:center; box-shadow:0 10px 30px rgba(0,0,0,0.15); transition:0.3s; }
-.card:hover { transform:scale(1.05); box-shadow:0 15px 40px rgba(0,0,0,0.25); }
-.card i { color:#078930; margin-bottom:15px; }
-.card-green { border-top:5px solid #078930; }
-.card-blue { border-top:5px solid #00BFFF; }
-.card-yellow { border-top:5px solid #FFD700; }
-
-/* ===== FORM ===== */
-.card-form { background:white; padding:30px; border-radius:20px; max-width:500px; margin:auto; box-shadow:0 10px 30px rgba(0,0,0,0.15); }
-.card-form label { display:block; margin-top:10px; font-weight:500; }
-.card-form select, .card-form input, .card-form textarea {
-  width:100%; padding:12px; margin-top:5px; border-radius:10px; border:1px solid #ccc;
-}
-.card-form input:focus, .card-form select:focus, .card-form textarea:focus { border-color:#078930; outline:none; box-shadow:0 0 8px rgba(7,137,48,0.3); }
-.btn { display:inline-block; padding:12px 25px; background: linear-gradient(45deg,#078930,#00BFFF,#FFD700); color:white; font-size:1rem; border:none; border-radius:25px; cursor:pointer; transition:0.3s; margin-top:15px; }
-.btn:hover { transform:scale(1.05); background:#078930; }
-
-/* FOOTER */
-footer { background:#111; color:white; text-align:center; padding:20px; border-radius:15px 15px 0 0; margin-top:40px; }
-
-/* RESPONSIVE */
-@media(max-width:768px){ .cards-horizontal{ flex-direction:column; align-items:center; } }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyHealthID Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'Roboto',sans-serif;}
+    body{background:#f4f7f9;}
+    header{background:#0055A4;color:white;padding:20px;text-align:center;position:sticky;top:0;z-index:10;}
+    header img{height:40px;vertical-align:middle;margin-right:10px;}
+    nav a{color:white;margin:0 15px;text-decoration:none;font-weight:500;}
+    nav a:hover{text-decoration:underline;}
+    section{padding:50px; max-width:1200px; margin:auto;}
+    h2,h3{margin-bottom:20px;color:#0055A4;}
+    form input, form select, form textarea{width:100%;padding:10px;margin:8px 0;border:1px solid #ccc;border-radius:5px;}
+    form button{background:#00B388;color:white;padding:15px 30px;border:none;border-radius:5px;font-weight:bold;cursor:pointer;margin-top:20px;}
+    form button:hover{background:#00976B;}
+    .dashboard{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:30px;}
+    .card{background:white;padding:20px;border-radius:15px;box-shadow:0 4px 10px rgba(0,0,0,0.1);text-align:center;}
+    .card img{width:80px;margin-bottom:10px;}
+    .tabs{display:flex;gap:10px;margin-bottom:20px;}
+    .tabs button{flex:1;padding:15px;border:none;border-radius:10px;background:#00B388;color:white;font-weight:bold;cursor:pointer;}
+    .tabs button.active{background:#0055A4;}
+    .tab-content{display:none;background:white;padding:20px;border-radius:15px;box-shadow:0 4px 10px rgba(0,0,0,0.1);}
+    .tab-content.active{display:block;}
+    footer{text-align:center;padding:20px;background:#0055A4;color:white;margin-top:50px;}
+    .ethiopian-flag{height:25px;vertical-align:middle;margin-left:10px;}
+  </style>
 </head>
 <body>
 
-<!-- HEADER + NAV -->
-<header id="mainHeader" style="display:none;">
-  <h1>BAI Care</h1>
-  <p>Smart Healthcare Portal</p>
-  <nav class="navbar" id="navLinks"></nav>
+<header>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Flag_of_Ethiopia.svg" class="ethiopian-flag" alt="Ethiopia Flag">
+  <span style="font-size:24px;font-weight:bold;">MyHealthID Portal</span>
+  <nav style="margin-top:10px;">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#login">Login</a>
+    <a href="#register">Patient ID</a>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#appointments">Appointments</a>
+    <a href="#chat">Chat</a>
+    <a href="#history">Medical History</a>
+    <a href="#admin">Admin</a>
+  </nav>
 </header>
 
-<!-- LOGIN SCREEN -->
-<div id="loginScreen" class="screen active">
-  <h2>Login to BAI Care</h2>
-  <form id="loginForm" class="card-form">
-    <label>Username</label><input type="text" id="username" required>
-    <label>Password</label><input type="password" id="password" required>
-    <label>Role</label>
-    <select id="role" required>
-      <option value="">Select role</option>
-      <option value="patient">Patient</option>
-      <option value="doctor">Doctor</option>
-      <option value="admin">Admin</option>
+<!-- Home Section -->
+<section id="home">
+  <h2>Welcome to MyHealthID</h2>
+  <p style="font-size:18px;">Your nationwide patient identification and medication safety system. Secure, reliable, and connected healthcare for Ethiopia.</p>
+  <img src="https://cdn.pixabay.com/photo/2018/03/10/23/48/doctor-3217475_960_720.jpg" style="width:100%;border-radius:15px;margin-top:20px;">
+</section>
+
+<!-- About Section -->
+<section id="about">
+  <h2>About MyHealthID</h2>
+  <p>MyHealthID provides a unique patient ID, tracks medications, alerts for drug interactions, and allows online/offline access for doctors, patients, and healthcare administrators. Our goal is to prevent medication errors, save lives, and improve continuity of care across Ethiopia.</p>
+</section>
+
+<!-- Patient Registration Section -->
+<section id="register">
+  <h2>First-Time Patient Registration</h2>
+  <form id="fullPatientForm" enctype="multipart/form-data">
+    <h3>Personal Information</h3>
+    <input type="text" name="name" placeholder="Full Name" required>
+    <input type="number" name="age" placeholder="Age" required>
+    <select name="sex" required>
+      <option value="">Select Sex</option>
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
     </select>
-    <button class="btn" type="submit">Login</button>
+    <input type="text" name="religion" placeholder="Religion">
+    <input type="text" name="occupation" placeholder="Occupation">
+    <input type="text" name="maritalStatus" placeholder="Marital Status">
+    <input type="text" name="eduStatus" placeholder="Educational Status">
+    <input type="text" name="dept" placeholder="Department">
+    <input type="text" name="ward" placeholder="Ward">
+    <input type="text" name="room" placeholder="Room">
+    <input type="text" name="bedNo" placeholder="Bed No.">
+    
+    <h3>Clinical History</h3>
+    <textarea name="chiefComplaint" placeholder="Chief Complaint"></textarea>
+    <textarea name="hpi" placeholder="History of Present Illness"></textarea>
+    <textarea name="pastMedicalHistory" placeholder="Past Medical History"></textarea>
+    <textarea name="medicationsTaken" placeholder="Medications Taken"></textarea>
+    <input type="file" name="nid" accept="image/*,application/pdf" required>
+    <input type="file" name="photo" accept="image/*">
+    <label><input type="checkbox" required> I consent to store my data securely for medical use.</label>
+    <button type="submit">Submit Registration</button>
   </form>
-</div>
+</section>
 
-<!-- PATIENT DASHBOARD -->
-<div id="patientDashboard" class="screen">
-  <h2>Patient Dashboard</h2>
-  <div class="cards-horizontal">
-    <div class="card card-green" onclick="showScreen('appointmentScreen')"><i class="fas fa-calendar-check fa-2x"></i><h3>Book Appointment</h3></div>
-    <div class="card card-blue" onclick="showScreen('queueScreen')"><i class="fas fa-users fa-2x"></i><h3>Queue Status</h3></div>
-    <div class="card card-yellow" onclick="showScreen('triageScreen')"><i class="fas fa-stethoscope fa-2x"></i><h3>AI Triage</h3></div>
+<!-- Dashboard Section -->
+<section id="dashboard">
+  <h2>Dashboard</h2>
+  <div class="dashboard">
+    <div class="card">
+      <img src="https://cdn.pixabay.com/photo/2016/11/29/03/53/ai-1869301_960_720.png" alt="AI Health">
+      <h3>AI Health Tips</h3>
+      <p>Get personalized AI-based health recommendations.</p>
+    </div>
+    <div class="card">
+      <img src="https://cdn.pixabay.com/photo/2017/12/10/14/47/appointment-3013938_960_720.jpg" alt="Appointments">
+      <h3>Appointments</h3>
+      <p>Manage your clinic visits and schedule follow-ups.</p>
+    </div>
+    <div class="card">
+      <img src="https://cdn.pixabay.com/photo/2017/12/27/01/31/chat-3040113_960_720.png" alt="Chat">
+      <h3>Chat with Doctor</h3>
+      <p>Ask questions and get advice from your doctor securely.</p>
+    </div>
   </div>
-</div>
+</section>
 
-<!-- DOCTOR DASHBOARD -->
-<div id="doctorDashboard" class="screen">
-  <h2>Doctor Dashboard</h2>
-  <div class="cards-horizontal">
-    <div class="card card-blue" onclick="showScreen('queueScreen')"><i class="fas fa-users fa-2x"></i><h3>View Queue</h3></div>
-    <div class="card card-yellow" onclick="showScreen('triageScreen')"><i class="fas fa-stethoscope fa-2x"></i><h3>AI Triage Review</h3></div>
-  </div>
-</div>
-
-<!-- ADMIN DASHBOARD -->
-<div id="adminDashboard" class="screen">
-  <h2>Admin Dashboard</h2>
-  <div class="cards-horizontal">
-    <div class="card card-green"><i class="fas fa-users fa-2x"></i><h3>Manage Users</h3></div>
-    <div class="card card-blue"><i class="fas fa-hospital fa-2x"></i><h3>Manage Hospitals</h3></div>
-    <div class="card card-yellow"><i class="fas fa-calendar-check fa-2x"></i><h3>Manage Appointments</h3></div>
-  </div>
-</div>
-
-<!-- APPOINTMENT SCREEN -->
-<div id="appointmentScreen" class="screen">
-  <h2>Book Appointment</h2>
-  <form class="card-form" id="appointmentForm">
-    <label>Hospital</label>
-    <select id="hospital" required>
-      <option value="">Select Hospital</option>
-      <option value="Addis Ababa Hospital">Addis Ababa Hospital</option>
-      <option value="Mekelle Hospital">Mekelle Hospital</option>
-      <option value="Bahir Dar Hospital">Bahir Dar Hospital</option>
-    </select>
-    <label>Date</label><input type="date" id="appointmentDate" required>
-    <button class="btn" type="submit">Confirm Appointment</button>
+<!-- Appointments Section -->
+<section id="appointments">
+  <h2>Appointments</h2>
+  <p>Schedule, view, and manage your appointments with your healthcare providers.</p>
+  <form>
+    <input type="date" name="appointmentDate" required>
+    <input type="time" name="appointmentTime" required>
+    <textarea name="reason" placeholder="Reason for Appointment"></textarea>
+    <button type="submit">Book Appointment</button>
   </form>
-</div>
+</section>
 
-<!-- QUEUE SCREEN -->
-<div id="queueScreen" class="screen">
-  <h2>Queue Status</h2>
-  <div class="cards-horizontal">
-    <div class="card card-green"><h3>Patient #1</h3></div>
-    <div class="card card-blue"><h3>Patient #2</h3></div>
-    <div class="card card-yellow"><h3>Patient #3</h3></div>
-  </div>
-</div>
+<!-- Chat Section -->
+<section id="chat">
+  <h2>Chat with Doctor</h2>
+  <div style="border:1px solid #ccc; border-radius:10px; padding:10px; max-height:400px; overflow-y:auto;" id="chatBox"></div>
+  <input type="text" id="userMsg" placeholder="Type your question..." style="width:80%; padding:10px; margin-top:10px;">
+  <button onclick="sendMessage()" style="padding:10px;">Send</button>
+</section>
 
-<!-- TRIAGE SCREEN -->
-<div id="triageScreen" class="screen">
-  <h2>AI Triage</h2>
-  <form class="card-form" id="triageForm">
-    <label>Fever?</label>
-    <select id="fever" required><option value="">Select</option><option value="yes">Yes</option><option value="no">No</option></select>
-    <label>Cough?</label>
-    <select id="cough" required><option value="">Select</option><option value="yes">Yes</option><option value="no">No</option></select>
-    <button class="btn" type="submit">Submit</button>
-  </form>
-  <p id="triageResult"></p>
-</div>
+<!-- Medical History Section -->
+<section id="history">
+  <h2>Medical History</h2>
+  <div id="medicalHistory"></div>
+</section>
+
+<!-- Admin Section -->
+<section id="admin">
+  <h2>Admin Portal</h2>
+  <p>Search patients by name or ID</p>
+  <input type="text" id="searchPatient" placeholder="Enter Patient Name or ID">
+  <button onclick="searchPatient()">Search</button>
+  <div id="adminResults"></div>
+</section>
 
 <footer>
-  <p>© 2025 BAI Care — All Rights Reserved</p>
+  MyHealthID &copy; 2025 - Ethiopia
 </footer>
 
 <script>
-// SHOW SCREEN FUNCTION
-function showScreen(id){
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  document.getElementById('mainHeader').style.display='block';
-}
+  // Registration form
+  document.getElementById('fullPatientForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    let formData = new FormData(this);
+    let uniqueID = 'MH' + Date.now();
+    formData.append('patientID', uniqueID);
+    let patients = JSON.parse(localStorage.getItem('patients') || '[]');
+    patients.push(Object.fromEntries(formData));
+    patients.sort((a,b)=>a.name.localeCompare(b.name));
+    localStorage.setItem('patients', JSON.stringify(patients));
+    alert('Registration submitted! Your Patient ID: ' + uniqueID);
+    this.reset();
+  });
 
-// LOGIN FORM
-document.getElementById('loginForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  const role = document.getElementById('role').value;
-  const nav = document.getElementById('navLinks');
-  if(role==='patient'){
-    showScreen('patientDashboard');
-    nav.innerHTML=`<a href="#" onclick="showScreen('patientDashboard')">Home</a>
-                   <a href="#" onclick="showScreen('appointmentScreen')">Book Appointment</a>
-                   <a href="#" onclick="showScreen('queueScreen')">Queue</a>
-                   <a href="#" onclick="showScreen('triageScreen')">AI Triage</a>
-                   <a href="#" onclick="logout()">Logout</a>`;
-  } else if(role==='doctor'){
-    showScreen('doctorDashboard');
-    nav.innerHTML=`<a href="#" onclick="showScreen('doctorDashboard')">Home</a>
-                   <a href="#" onclick="showScreen('queueScreen')">Queue</a>
-                   <a href="#" onclick="showScreen('triageScreen')">AI Triage Review</a>
-                   <a href="#" onclick="logout()">Logout</a>`;
-  } else if(role==='admin'){
-    showScreen('adminDashboard');
-    nav.innerHTML=`<a href="#" onclick="showScreen('adminDashboard')">Home</a>
-                   <a href="#" onclick="logout()">Logout</a>`;
+  // Chat simulation
+  function sendMessage(){
+    let msg = document.getElementById('userMsg').value;
+    if(!msg) return;
+    let chatBox = document.getElementById('chatBox');
+    chatBox.innerHTML += '<p><b>You:</b> '+msg+'</p>';
+    chatBox.innerHTML += '<p><b>AI Doctor:</b> This is a simulated response. Your query will be answered by a healthcare professional.</p>';
+    chatBox.scrollTop = chatBox.scrollHeight;
+    document.getElementById('userMsg').value='';
   }
-});
 
-function logout(){
-  showScreen('loginScreen');
-  document.getElementById('mainHeader').style.display='none';
-}
-
-// TRIAGE FORM
-document.getElementById('triageForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  const fever = document.getElementById('fever').value;
-  const cough = document.getElementById('cough').value;
-  let result = "Mild symptoms. Rest and hydrate.";
-  if(fever==="yes" && cough==="yes") result="High risk! See doctor immediately!";
-  document.getElementById('triageResult').textContent = result;
-});
-
-// APPOINTMENT FORM
-document.getElementById('appointmentForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  alert("Appointment confirmed!");
-  showScreen('patientDashboard');
-});
+  // Admin search
+  function searchPatient(){
+    let query = document.getElementById('searchPatient').value.toLowerCase();
+    let patients = JSON.parse(localStorage.getItem('patients') || '[]');
+    let results = patients.filter(p=>p.name.toLowerCase().includes(query) || p.patientID.toLowerCase().includes(query));
+    let html = '';
+    results.forEach(p=>{
+      html += `<div style="border:1px solid #ccc;padding:10px;margin:10px;border-radius:10px;">
+        <p><b>ID:</b> ${p.patientID}</p>
+        <p><b>Name:</b> ${p.name}</p>
+        <p><b>Age:</b> ${p.age}</p>
+        <p><b>Sex:</b> ${p.sex}</p>
+        <p><b>Chief Complaint:</b> ${p.chiefComplaint || 'N/A'}</p>
+      </div>`;
+    });
+    document.getElementById('adminResults').innerHTML = html || 'No results found.';
+  }
 </script>
+
 </body>
 </html>
-
-
