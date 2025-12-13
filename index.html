@@ -1,4 +1,659 @@
-<!DOCTYPE html>
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - MyHealthID</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="auth-body">
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html" style="color: white; text-decoration: none;">
+                    <i class="fas fa-heartbeat"></i> MyHealthID
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="auth-container">
+        <div class="auth-card">
+            <h2>Create Account</h2>
+            <p>Join the National Health Network</p>
+            
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="role">I am a:</label>
+                    <select id="role" name="role" required>
+                        <option value="patient">Patient</option>
+                        <option value="doctor">Doctor / Health Professional</option>
+                        <option value="admin">Hospital Administrator</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="full_name">Full Name</label>
+                    <input type="text" name="full_name" required placeholder="Belay Kassaneaw">
+                </div>
+
+                <div class="form-group">
+                    <label for="national_id">National ID (NID)</label>
+                    <input type="text" name="national_id" required placeholder="NID-12345678">
+                    <small>This will be your unique medical identifier.</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" name="email" required placeholder="email@domain.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" required placeholder="••••••••">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Register & Generate ID</button>
+            </form>
+            
+            <p class="auth-footer">
+                Already have an account? <a href="login.html">Login here</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - MyHealthID</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="auth-body">
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html" style="color: white; text-decoration: none;">
+                    <i class="fas fa-heartbeat"></i> MyHealthID
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="auth-container">
+        <div class="auth-card">
+            <h2>Welcome Back</h2>
+            <p>Secure access to the National Health Portal</p>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required placeholder="doctor@hospital.et">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required placeholder="••••••••">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </form>
+            
+            <p class="auth-footer">
+                Don't have an ID? <a href="register.html">Register Now</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyHealthID - Nationwide Patient Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i> MyHealthID
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="#features">Solutions</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="login.html" class="btn-login">Login</a></li>
+                <li><a href="register.html" class="btn-register">Register</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>One Nation. One ID. <br>Safer Healthcare.</h1>
+                <p>Ethiopia's first secure, cloud-based platform linking your National ID to comprehensive medical history. Preventing medication errors and saving lives.</p>
+                <div class="cta-buttons">
+                    <a href="register.html" class="btn btn-primary">Get Your Health ID</a>
+                    <a href="#features" class="btn btn-outline">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img id="hero-img" src="images/hero-medical-tech.jpg" alt="Digital Health Dashboard">
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container stat-grid">
+            <div class="stat-card">
+                <h3>70%</h3>
+                <p>Reduction in Medication Errors</p>
+            </div>
+            <div class="stat-card">
+                <h3>10+</h3>
+                <p>High-Risk Drug Classes Monitored</p>
+            </div>
+            <div class="stat-card">
+                <h3>100%</h3>
+                <p>Secure Cloud Encryption</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Core Solutions</h2>
+                <p>Empowering patients and doctors with real-time data.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <i class="fas fa-id-card"></i>
+                    <h3>Unified National ID</h3>
+                    <p>A single digital identifier linking all your medical records across hospitals, clinics, and pharmacies.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-pills"></i>
+                    <h3>Medication Safety AI</h3>
+                    <p>Real-time alerts for drug-drug interactions (e.g., Rifampicin + ART) and allergy warnings.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Smart Appointments</h3>
+                    <p>Offline-first booking system with SMS reminders for rural and urban access.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-user-md"></i>
+                    <h3>Remote Consultation</h3>
+                    <p>Access emergency ABCDE guidance and chat with specialists from anywhere.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-comment-medical"></i>
+                    <h3>Secure Chat</h3>
+                    <p>Direct, encrypted messaging between patients and healthcare providers.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-notes-medical"></i>
+                    <h3>Symptom Reporting</h3>
+                    <p>AI-assisted symptom logging to track health trends and alert doctors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Meet the Founders</h2>
+                <p>A BOSS MED Alliance Initiative - Submitted to the AAU–DBU Health Business Idea Competition.</p>
+                <p style="max-width: 800px; margin: 0 auto 40px;"><strong>Our Mission:</strong> To eliminate fragmented medical records in Ethiopia, reduce high-risk drug interactions, and ensure continuity of care through digital transformation.</p>
+            </div>
+            
+            <div class="founders-grid">
+                <div class="founder-card">
+                    <div class="founder-img">
+                        <img src="images/founder-belay.jpg" alt="Belay Kassaneaw">
+                    </div>
+                    <h3>Belay Kassaneaw</h3>
+                    <p class="role">Public Health Lead</p>
+                    <p class="bio">Expert in epidemiology and community health systems.</p>
+                </div>
+                <div class="founder-card">
+                    <div class="founder-img">
+                        <img src="images/founder-addissu.jpg" alt="Addissu Yirdaw">
+                    </div>
+                    <h3>Addissu Yirdaw</h3>
+                    <p class="role">Computer Science / Tech Lead</p>
+                    <p class="bio">Specialist in secure cloud architecture and full-stack development.</p>
+                </div>
+                <div class="founder-card">
+                    <div class="founder-img">
+                        <img src="images/founder-besufekad.jpg" alt="Besufekad Zenebe">
+                    </div>
+                    <h3>Besufekad Zenebe</h3>
+                    <p class="role">AI & Data Scientist</p>
+                    <p class="bio">Focused on predictive healthcare models and medical AI integration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact/Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h3>MyHealthID</h3>
+                <p>Securing Ethiopia's Health Data.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="login.html">Doctor Portal</a>
+                <a href="login.html">Patient Login</a>
+                <a href="register.html">Register Facility</a>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p>Addis Ababa University</p>
+                <p>Debre Berhan University</p>
+                <p>support@myhealthid.et</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 A BOSS MED Alliance. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portal - MyHealthID</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <div class="sidebar">
+        <div class="logo">
+            <i class="fas fa-heartbeat"></i> MyHealthID
+        </div>
+        <ul class="sidebar-menu">
+            <li class="active"><a href="#"><i class="fas fa-file-medical"></i> My Records</a></li>
+            <li><a href="#book"><i class="fas fa-calendar-plus"></i> Book Appointment</a></li>
+            <li><a href="chat.html"><i class="fas fa-comment-medical"></i> Secure Chat</a></li>
+            <li><a href="#symptoms"><i class="fas fa-notes-medical"></i> Report Symptoms</a></li>
+            <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header class="dashboard-header">
+            <h2>My Health Dashboard</h2>
+            <div class="user-info">
+                <span id="userNameDisplay">Welcome, Patient</span>
+                <div class="nid-badge">NID: <span id="userNidDisplay">---</span></div>
+            </div>
+        </header>
+
+        <div class="dashboard-grid">
+             <!-- Book Appointment -->
+             <div class="card" id="book">
+                <h3><i class="fas fa-calendar-check"></i> Book Appointment</h3>
+                <form id="appointmentForm">
+                    <div class="form-group">
+                        <label>Select Doctor/Department</label>
+                        <select name="doctor_name">
+                            <option value="Dr. Addissu Yirdaw">Dr. Addissu Yirdaw (General)</option>
+                            <option value="Dr. Belay Kassaneaw">Dr. Belay Kassaneaw (Public Health)</option>
+                            <option value="Dr. Sarah Smith">Dr. Sarah Smith (Cardiology)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Preferred Date & Time</label>
+                        <input type="datetime-local" name="appointment_time" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Reason (Optional - Secure)</label>
+                        <textarea name="notes" placeholder="Describe symptoms securely..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Schedule (Works Offline)</button>
+                </form>
+            </div>
+
+            <!-- Symptom Reporting Module -->
+            <div class="card" id="symptoms">
+                <h3><i class="fas fa-notes-medical"></i> Symptom Tracker</h3>
+                <p style="font-size: 0.9rem; margin-bottom: 15px; color: #666;">Log symptoms for AI analysis and doctor review.</p>
+                <form id="symptomForm">
+                    <div class="form-group">
+                        <label>Main Symptom</label>
+                        <input type="text" name="symptoms" placeholder="e.g., High fever, coughing" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Severity</label>
+                        <select name="severity">
+                            <option value="Mild">Mild</option>
+                            <option value="Moderate">Moderate</option>
+                            <option value="Severe">Severe</option>
+                            <option value="Critical">Critical</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-warning btn-block">Log Symptoms</button>
+                </form>
+            </div>
+
+            <!-- Emergency Guidance -->
+            <div class="card emergency-card">
+                <h3><i class="fas fa-ambulance"></i> Emergency ABCDE Guide</h3>
+                <p>Follow these steps if you are in a remote area:</p>
+                <ul class="abcde-list">
+                    <li><strong>A</strong>irway: Ensure throat is clear.</li>
+                    <li><strong>B</strong>reathing: Check chest movement.</li>
+                    <li><strong>C</strong>irculation: Check pulse/bleeding.</li>
+                    <li><strong>D</strong>isability: Check alertness.</li>
+                    <li><strong>E</strong>xposure: Check for injuries.</li>
+                </ul>
+                <button class="btn btn-danger btn-block" onclick="alert('Calling 907 Emergency Service...')">Call Emergency Hotline</button>
+            </div>
+        </div>
+
+        <!-- Recent History -->
+        <div class="card full-width">
+            <h3><i class="fas fa-history"></i> Medical History & Prescriptions</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Doctor</th>
+                        <th>Diagnosis</th>
+                        <th>Prescription</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="historyList">
+                    <!-- Mock Data -->
+                    <tr>
+                        <td>Dec 10, 2025</td>
+                        <td>Dr. Besufekad</td>
+                        <td>Respiratory Infection</td>
+                        <td>Amoxicillin</td>
+                        <td><span class="badge success">Completed</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Portal - MyHealthID</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <div class="sidebar">
+        <div class="logo">
+            <i class="fas fa-heartbeat"></i> MyHealthID
+        </div>
+        <ul class="sidebar-menu">
+            <li class="active"><a href="#"><i class="fas fa-home"></i> Overview</a></li>
+            <li><a href="#"><i class="fas fa-user-injured"></i> Patient Lookup</a></li>
+            <li><a href="#"><i class="fas fa-calendar-alt"></i> Appointments</a></li>
+            <li><a href="chat.html"><i class="fas fa-comment-medical"></i> Secure Chat</a></li>
+            <li><a href="#"><i class="fas fa-pills"></i> Prescriptions</a></li>
+            <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header class="dashboard-header">
+            <h2>Doctor Dashboard</h2>
+            <div class="user-info">
+                <span>Dr. Addissu Yirdaw</span>
+                <img id="doc-profile" src="images/doc-profile.jpg" alt="Doctor Profile" class="avatar">
+            </div>
+        </header>
+
+        <!-- Patient Search & Safety Module -->
+        <div class="dashboard-grid">
+            <div class="card patient-search">
+                <h3><i class="fas fa-search"></i> Patient NID Lookup</h3>
+                <div class="search-box">
+                    <input type="text" placeholder="Enter National ID (e.g., NID-12345)">
+                    <button class="btn btn-primary">Fetch Records</button>
+                </div>
+                <div class="patient-result hidden" id="patientResult">
+                    <div class="alert alert-info">
+                        <strong>Patient Found:</strong> Abebe Kebede (NID-998877)<br>
+                        History: Hypertension, Diabetes Type 2
+                    </div>
+                </div>
+            </div>
+
+            <div class="card appointments-today">
+                <h3><i class="fas fa-clock"></i> Today's Appointments</h3>
+                <ul class="appointment-list" id="doctorApptList">
+                    <!-- Populated by JS -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- Medication Safety Module -->
+        <div class="card safety-module">
+            <h3><i class="fas fa-shield-alt"></i> AI Medication Safety Check</h3>
+            <p class="subtitle">Real-time interaction checker for 10+ high-risk drug classes.</p>
+            
+            <form id="prescriptionForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Diagnosis</label>
+                        <input type="text" name="diagnosis" placeholder="e.g., Tuberculosis" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Prescribe Medication</label>
+                        <input type="text" id="drugInput" name="prescription" placeholder="e.g., Rifampicin" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Current Medications (Auto-filled from History)</label>
+                    <input type="text" id="currentMeds" value="ART (Antiretroviral Therapy)" readonly>
+                </div>
+
+                <div id="safetyAlert" class="alert alert-danger hidden">
+                    <i class="fas fa-exclamation-triangle"></i> 
+                    <strong>CRITICAL WARNING:</strong> Drug Interaction Detected!<br>
+                    Co-administration of <strong>Rifampicin</strong> and <strong>ART</strong> significantly reduces antiviral efficacy. Adjust dosage or substitute.
+                </div>
+
+                <div id="safetySuccess" class="alert alert-success hidden">
+                    <i class="fas fa-check-circle"></i> No interactions detected. Safe to prescribe.
+                </div>
+
+                <button type="submit" class="btn btn-primary">Validate & Prescribe</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Chat - MyHealthID</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .chat-container {
+            display: flex;
+            height: calc(100vh - 100px);
+            background: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        .chat-sidebar {
+            width: 300px;
+            background: #f8f9fa;
+            border-right: 1px solid #dee2e6;
+            padding: 20px;
+        }
+        .chat-main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: #fff;
+        }
+        .message {
+            margin-bottom: 15px;
+            max-width: 70%;
+            padding: 10px 15px;
+            border-radius: 15px;
+            font-size: 0.95rem;
+        }
+        .message.sent {
+            background-color: var(--primary);
+            color: white;
+            margin-left: auto;
+            border-bottom-right-radius: 2px;
+        }
+        .message.received {
+            background-color: #e9ecef;
+            color: #333;
+            margin-right: auto;
+            border-bottom-left-radius: 2px;
+        }
+        .chat-input-area {
+            padding: 20px;
+            background: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+            display: flex;
+            gap: 10px;
+        }
+        .contact-item {
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .contact-item:hover, .contact-item.active {
+            background: #e9ecef;
+        }
+        .contact-avatar {
+            width: 40px;
+            height: 40px;
+            background: #ddd;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="dashboard-body">
+    <div class="sidebar">
+        <div class="logo">
+            <i class="fas fa-heartbeat"></i> MyHealthID
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard-patient.html" id="backToDash"><i class="fas fa-arrow-left"></i> Back to Dashboard</a></li>
+            <li class="active"><a href="#"><i class="fas fa-comment-medical"></i> Secure Chat</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header class="dashboard-header">
+            <h2>Secure Medical Messages</h2>
+            <div class="user-info">
+                <span>Logged In</span>
+            </div>
+        </header>
+
+        <div class="chat-container">
+            <div class="chat-sidebar">
+                <h3>Contacts</h3>
+                <div class="contact-list">
+                    <div class="contact-item active">
+                        <div class="contact-avatar" style="background-image: url('images/doc-profile.jpg'); background-size: cover;"></div>
+                        <div>
+                            <strong>Dr. Addissu Yirdaw</strong>
+                            <div style="font-size: 0.8rem; color: #666;">General Practitioner</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-avatar"></div>
+                        <div>
+                            <strong>Dr. Sarah Smith</strong>
+                            <div style="font-size: 0.8rem; color: #666;">Cardiologist</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-main">
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message received">
+                        Hello, how are you feeling after the new medication?
+                        <div style="font-size: 0.7rem; opacity: 0.7; margin-top: 5px;">10:30 AM</div>
+                    </div>
+                    <!-- Messages will appear here -->
+                </div>
+                
+                <form class="chat-input-area" id="chatForm">
+                    <input type="text" id="messageInput" placeholder="Type your secure message..." required style="flex:1;">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Simple Chat UI Logic (Integration with backend in script.js)
+        document.addEventListener('DOMContentLoaded', async () => {
+            const user = await window.LeadGenRuntime.getCurrentUser();
+            if(user) {
+                if(user.role === 'doctor') {
+                    document.getElementById('backToDash').href = 'dashboard-doctor.html';
+                }
+            }
+            
+            // Load messages logic in script.js
+        });
+    </script>
+</body>
+</html><!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -246,4 +901,5 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
