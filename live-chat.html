@@ -29,7 +29,130 @@
                 <span></span>
             </div>
         </div>
-    </nav>
+    </nav><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patient Chat & Emergency - MyHealthID</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f9f9f9; }
+.navbar { display:flex; justify-content:space-between; align-items:center; padding:15px 20px; background:#007bff; color:#fff; }
+.nav-menu { list-style:none; display:flex; gap:15px; margin:0; }
+.nav-menu li a { color:#fff; text-decoration:none; padding:5px 10px; }
+.nav-menu li a.btn-login { background:#fff; color:#007bff; border-radius:5px; }
+.chat-container { display:flex; max-width:1200px; margin:40px auto; gap:20px; padding:0 20px; }
+.chat-box { flex:2; background:#fff; border-radius:10px; padding:20px; display:flex; flex-direction:column; height:600px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
+.chat-header { display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; padding-bottom:10px; margin-bottom:10px; }
+.status-dot { width:12px; height:12px; border-radius:50%; display:inline-block; margin-right:8px; background:gray; }
+.status-online { background:green; }
+.chat-messages { flex:1; overflow-y:auto; padding:10px; }
+.chat-message { margin-bottom:10px; padding:6px 10px; border-radius:5px; max-width:70%; }
+.chat-message.patient { background:#d1e7ff; margin-left:auto; text-align:right; }
+.chat-message.doctor { background:#f1f1f1; margin-right:auto; text-align:left; }
+.chat-input { display:flex; gap:10px; margin-top:10px; }
+.chat-input input { flex:1; padding:10px; border-radius:5px; border:1px solid #ccc; }
+.chat-input button { padding:10px 20px; border:none; border-radius:5px; background:#007bff; color:#fff; cursor:pointer; }
+.emergency-guide { flex:1; background:#fff; border-radius:10px; padding:20px; height:600px; overflow-y:auto; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
+.emergency-guide h3 { margin-bottom:10px; }
+.emergency-guide ul { padding-left:20px; }
+.emergency-guide li { margin-bottom:10px; }
+@media(max-width:900px){ .chat-container { flex-direction:column; } .chat-box, .emergency-guide { height:auto; } }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo"><i class="fas fa-heartbeat"></i> MyHealthID</div>
+    <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html" class="btn-login active">Login</a></li>
+    </ul>
+</nav>
+
+<div class="chat-container">
+    <div class="chat-box">
+        <div class="chat-header">
+            <div><span class="status-dot status-online" id="doctorStatus"></span>Dr. Online</div>
+            <div><i class="fas fa-user-md"></i> MyHealthID Doctor</div>
+        </div>
+        <div class="chat-messages" id="chatMessages"></div>
+        <div class="chat-input">
+            <input type="text" id="patientMessage" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    <div class="emergency-guide">
+        <h3>Emergency Guides</h3>
+        <ul>
+            <li><strong>ABCDE Approach:</strong> Airway, Breathing, Circulation, Disability, Exposure</li>
+            <li><strong>ATLS Trauma:</strong> Advanced Trauma Life Support steps for trauma patients</li>
+            <li><strong>Stroke Protocol:</strong> FAST assessment, rapid transport</li>
+            <li><strong>Remote Area Priority:</strong> Basic resuscitation, oxygen, fluid management, contact nearest facility</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+<script>
+// --- Firebase Config ---
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  databaseURL: "https://YOUR_PROJECT.firebaseio.com",
+  projectId: "YOUR_PROJECT",
+  storageBucket: "YOUR_PROJECT.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+firebase.initializeApp(firebaseConfig);
+
+const db = firebase.database();
+const auth = firebase.auth();
+
+// Doctor status simulation
+const doctorStatus = document.getElementById('doctorStatus');
+doctorStatus.classList.add('status-online');
+
+// Real-time chat listener
+const chatMessages = document.getElementById('chatMessages');
+let userId = 'patient1'; // Replace with auth.currentUser.uid after login
+
+const chatRef = db.ref('chats/' + userId);
+chatRef.on('child_added', snapshot => {
+    const msg = snapshot.val();
+    const div = document.createElement('div');
+    div.classList.add('chat-message', msg.sender);
+    div.textContent = msg.text;
+    chatMessages.appendChild(div);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+});
+
+// Send message
+function sendMessage(){
+    const input = document.getElementById('patientMessage');
+    const message = input.value.trim();
+    if(message === '') return;
+    chatRef.push({ sender:'patient', text:message, timestamp: Date.now() });
+    input.value = '';
+}
+
+// Simulate doctor auto-response for demo (remove in real deployment)
+chatRef.push({ sender:'doctor', text:'Welcome! I am here to assist you.', timestamp: Date.now() });
+
+</script>
+
+</body>
+</html>
+
 
     <!-- Chat Container -->
     <div class="chat-container">
