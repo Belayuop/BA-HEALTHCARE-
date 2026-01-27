@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard - MyHealth Hospital</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-hospital"></i>
+                <span>MyHealth Hospital</span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+                <li><a href="login.html" class="nav-link btn-logout" id="logoutBtn">Logout</a></li>
+            </ul>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Container -->
+    <div class="dashboard-container">
+        <div class="container">
+            <!-- User Welcome Section -->
+            <div class="dashboard-header">
+                <div class="user-greeting">
+                    <h1>Welcome to Your Health Dashboard</h1>
+                    <p>Your National Health ID: <strong id="healthId">NH-2026-XXXXX</strong></p>
+                </div>
+                <div class="health-score">
+                    <div class="score-circle">
+                        <span id="healthScore">85</span>
+                        <p>Health Score</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Access Cards -->
+            <section class="quick-access">
+                <h2>Quick Access</h2>
+                <div class="quick-cards">
+                    <a href="appointments.html" class="quick-card">
+                        <i class="fas fa-calendar"></i>
+                        <h3>Appointments</h3>
+                        <p id="upcomingCount">0</p>
+                    </a>
+                    <a href="live-chat.html" class="quick-card">
+                        <i class="fas fa-comments"></i>
+                        <h3>Messages</h3>
+                        <p id="messageCount">0</p>
+                    </a>
+                    <a href="#medical-history" class="quick-card">
+                        <i class="fas fa-file-medical"></i>
+                        <h3>Medical Records</h3>
+                        <p id="recordsCount">0</p>
+                    </a>
+                    <a href="dermatology-ai.html" class="quick-card">
+                        <i class="fas fa-microscope"></i>
+                        <h3>AI Analysis</h3>
+                        <p>New Scan</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Medical History Section -->
+            <section class="medical-history" id="medical-history">
+                <h2>Medical History</h2>
+                <div class="history-table-wrapper">
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Doctor</th>
+                                <th>Department</th>
+                                <th>Diagnosis</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historyTable">
+                            <tr>
+                                <td>2026-01-20</td>
+                                <td>Dr. Ahmed Hassan</td>
+                                <td>Cardiology</td>
+                                <td>Routine Check-up</td>
+                                <td><a href="#" class="view-btn">View</a></td>
+                            </tr>
+                            <tr>
+                                <td>2026-01-15</td>
+                                <td>Dr. Fatima Abdi</td>
+                                <td>Dermatology</td>
+                                <td>Skin Analysis</td>
+                                <td><a href="#" class="view-btn">View</a></td>
+                            </tr>
+                            <tr>
+                                <td>2026-01-10</td>
+                                <td>Dr. Mohammed Ali</td>
+                                <td>General Medicine</td>
+                                <td>Lab Results Review</td>
+                                <td><a href="#" class="view-btn">View</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Prescriptions Section -->
+            <section class="prescriptions">
+                <h2>Active Prescriptions</h2>
+                <div class="prescriptions-grid">
+                    <div class="prescription-card">
+                        <h3>Medication 1</h3>
+                        <p><strong>Dosage:</strong> 500mg</p>
+                        <p><strong>Frequency:</strong> Twice daily</p>
+                        <p><strong>Expires:</strong> 2026-02-20</p>
+                        <a href="drug-checker.html" class="check-interaction-btn">Check Interactions</a>
+                    </div>
+                    <div class="prescription-card">
+                        <h3>Medication 2</h3>
+                        <p><strong>Dosage:</strong> 250mg</p>
+                        <p><strong>Frequency:</strong> Once daily</p>
+                        <p><strong>Expires:</strong> 2026-03-15</p>
+                        <a href="drug-checker.html" class="check-interaction-btn">Check Interactions</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Health Metrics Section -->
+            <section class="health-metrics">
+                <h2>Health Metrics</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <i class="fas fa-heartbeat"></i>
+                        <h3>Heart Rate</h3>
+                        <p class="metric-value">72 BPM</p>
+                        <p class="metric-status">Normal</p>
+                    </div>
+                    <div class="metric-card">
+                        <i class="fas fa-lungs"></i>
+                        <h3>Blood Pressure</h3>
+                        <p class="metric-value">120/80</p>
+                        <p class="metric-status">Normal</p>
+                    </div>
+                    <div class="metric-card">
+                        <i class="fas fa-weight"></i>
+                        <h3>Weight</h3>
+                        <p class="metric-value">70 kg</p>
+                        <p class="metric-status">Healthy</p>
+                    </div>
+                    <div class="metric-card">
+                        <i class="fas fa-temperature-high"></i>
+                        <h3>Temperature</h3>
+                        <p class="metric-value">37°C</p>
+                        <p class="metric-status">Normal</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 MyHealth Hospital. Secure Health Portal</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

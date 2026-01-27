@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Doctor Chat | MyHealth Hospital</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-hospital-user"></i>
+                </div>
+                <div class="logo-text">
+                    <h2>MyHealth Hospital</h2>
+                    <p>National Health Network</p>
+                </div>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="chat.html" class="nav-link active">Live Chat</a></li>
+                <li><a href="telemedicine.html" class="nav-link">Telemedicine</a></li>
+                <li><a href="login.html" class="nav-link btn-login">Login</a></li>
+            </ul>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header-section">
+        <div class="container">
+            <h1>Doctor to Patient Live Chat</h1>
+            <p>Connect with verified healthcare professionals instantly</p>
+        </div>
+    </section>
+
+    <!-- Chat Section -->
+    <section class="chat-main-section">
+        <div class="container">
+            <div class="chat-wrapper">
+                <!-- Doctors List -->
+                <div class="doctors-sidebar">
+                    <h3>Available Doctors</h3>
+                    <div class="doctor-search">
+                        <input type="text" placeholder="Search doctors...">
+                    </div>
+                    <div class="doctors-list">
+                        <div class="doctor-card online">
+                            <div class="doctor-avatar">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <div class="doctor-info">
+                                <h4>Dr. Sarah Ahmed</h4>
+                                <p>General Practitioner</p>
+                                <span class="status">Online</span>
+                            </div>
+                        </div>
+                        <div class="doctor-card online">
+                            <div class="doctor-avatar">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <div class="doctor-info">
+                                <h4>Dr. John Smith</h4>
+                                <p>Cardiologist</p>
+                                <span class="status">Online</span>
+                            </div>
+                        </div>
+                        <div class="doctor-card">
+                            <div class="doctor-avatar">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <div class="doctor-info">
+                                <h4>Dr. Emily Brown</h4>
+                                <p>Dermatologist</p>
+                                <span class="status">Busy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Area -->
+                <div class="chat-area">
+                    <div class="chat-header">
+                        <h3>Dr. Sarah Ahmed</h3>
+                        <p>General Practitioner | Online</p>
+                    </div>
+
+                    <div class="messages-container" id="messagesContainer">
+                        <div class="message doctor-message">
+                            <p>Hello! How can I help you today?</p>
+                            <span class="time">10:30 AM</span>
+                        </div>
+                        <div class="message patient-message">
+                            <p>I've been having a persistent cough for 3 days</p>
+                            <span class="time">10:31 AM</span>
+                        </div>
+                        <div class="message doctor-message">
+                            <p>I see. Do you have any other symptoms like fever or shortness of breath?</p>
+                            <span class="time">10:32 AM</span>
+                        </div>
+                    </div>
+
+                    <div class="chat-input">
+                        <input type="text" id="messageInput" placeholder="Type your message...">
+                        <button class="btn btn-primary" onclick="sendMessage()">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="chat-features">
+        <div class="container">
+            <h2>Why Choose Our Live Chat?</h2>
+            <div class="features-list">
+                <div class="feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <h4>Licensed Doctors</h4>
+                        <p>All our healthcare professionals are verified and licensed</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <h4>24/7 Available</h4>
+                        <p>Doctors available round the clock for your health concerns</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <h4>Secure & Private</h4>
+                        <p>End-to-end encrypted conversations for your privacy</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <h4>Video Support</h4>
+                        <p>Switch to video consultation whenever needed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-hospital-user"></i>
+                        <h4>MyHealth Hospital</h4>
+                    </div>
+                    <p>Your trusted healthcare partner powered by AI</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="dermatology.html">AI Dermatology</a></li>
+                        <li><a href="chat.html">Live Chat</a></li>
+                        <li><a href="telemedicine.html">Telemedicine</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MyHealth Hospital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="chat.js"></script>
+</body>
+</html>

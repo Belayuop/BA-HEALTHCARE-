@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Doctor Chat - MyHealth Hospital</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-hospital"></i>
+                <span>MyHealth Hospital</span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="login.html" class="nav-link btn-logout">Logout</a></li>
+            </ul>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Chat Container -->
+    <div class="chat-container">
+        <div class="chat-wrapper">
+            <!-- Doctor Selection -->
+            <div class="chat-sidebar">
+                <h3>Available Doctors</h3>
+                <div class="doctors-list">
+                    <div class="doctor-item active" data-doctor="dr-ahmed">
+                        <div class="doctor-avatar">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="doctor-info">
+                            <h4>Dr. Ahmed Hassan</h4>
+                            <p class="status online"><span></span> Online</p>
+                        </div>
+                    </div>
+
+                    <div class="doctor-item" data-doctor="dr-fatima">
+                        <div class="doctor-avatar">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="doctor-info">
+                            <h4>Dr. Fatima Abdi</h4>
+                            <p class="status online"><span></span> Online</p>
+                        </div>
+                    </div>
+
+                    <div class="doctor-item" data-doctor="dr-mohammed">
+                        <div class="doctor-avatar">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="doctor-info">
+                            <h4>Dr. Mohammed Ali</h4>
+                            <p class="status away"><span></span> Away (3 min)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Window -->
+            <div class="chat-main">
+                <div class="chat-header">
+                    <div class="chat-doctor-info">
+                        <i class="fas fa-user-md"></i>
+                        <div>
+                            <h3>Dr. Ahmed Hassan</h3>
+                            <p>Cardiology Specialist</p>
+                        </div>
+                    </div>
+                    <div class="chat-actions">
+                        <button class="action-icon"><i class="fas fa-phone"></i></button>
+                        <button class="action-icon"><i class="fas fa-video"></i></button>
+                        <button class="action-icon"><i class="fas fa-info-circle"></i></button>
+                    </div>
+                </div>
+
+                <!-- Chat Messages -->
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message doctor-message">
+                        <div class="message-avatar">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="message-content">
+                            <p>Hello! How can I help you today?</p>
+                            <span class="message-time">10:30 AM</span>
+                        </div>
+                    </div>
+
+                    <div class="message patient-message">
+                        <div class="message-content">
+                            <p>I've been experiencing chest pain for the past week</p>
+                            <span class="message-time">10:32 AM</span>
+                        </div>
+                    </div>
+
+                    <div class="message doctor-message">
+                        <div class="message-avatar">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="message-content">
+                            <p>I'm sorry to hear that. Let me ask a few questions to better understand your symptoms.</p>
+                            <span class="message-time">10:33 AM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Input -->
+                <div class="chat-input-area">
+                    <form id="chatForm">
+                        <input type="text" id="messageInput" placeholder="Type your message..." autocomplete="off">
+                        <button type="button" class="attach-btn"><i class="fas fa-paperclip"></i></button>
+                        <button type="submit" class="send-btn"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 MyHealth Hospital. Secure & Encrypted Communication</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

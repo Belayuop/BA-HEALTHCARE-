@@ -1,0 +1,600 @@
+/* ========== DERMATOLOGY PAGE ========== */
+.how-it-works {
+    padding: 80px 20px;
+    background-color: var(--bg-light-gray);
+}
+
+.how-it-works h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 30px;
+}
+
+.step-card {
+    background-color: var(--bg-white);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    color: var(--bg-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0 auto 15px;
+}
+
+.step-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.step-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.analyzer-section {
+    padding: 80px 20px;
+}
+
+.analyzer-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.analyzer-content h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.analyzer-content p {
+    color: var(--text-light);
+    margin-bottom: 30px;
+    font-size: 1.05rem;
+}
+
+.upload-area {
+    border: 3px dashed var(--primary-blue);
+    border-radius: 12px;
+    padding: 50px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 30px;
+}
+
+.upload-area:hover {
+    border-color: var(--accent-red);
+    background-color: var(--light-blue);
+}
+
+.upload-area i {
+    font-size: 3rem;
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+}
+
+.upload-area h4 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.upload-area p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.result-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: var(--light-blue);
+    border-radius: 8px;
+}
+
+.result-item label {
+    font-weight: 600;
+    color: var(--primary-blue);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.benefits-section {
+    padding: 80px 20px;
+    background-color: var(--bg-light-gray);
+}
+
+.benefits-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.benefit-card {
+    background-color: var(--bg-white);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.benefit-card i {
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+}
+
+.benefit-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.benefit-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.conditions-section {
+    padding: 80px 20px;
+}
+
+.conditions-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.conditions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.condition-item {
+    background: linear-gradient(135deg, var(--light-blue), #f0f9ff);
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-blue);
+}
+
+.condition-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.condition-item p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* ========== DRUG CHECKER PAGE ========== */
+.drug-checker-main {
+    padding: 80px 20px;
+}
+
+.checker-section-full h2 {
+    text-align: center;
+    font-size: 2.3rem;
+    margin-bottom: 10px;
+}
+
+.checker-section-full p {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 40px;
+    font-size: 1.05rem;
+}
+
+.medications-input {
+    background-color: var(--light-blue);
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+}
+
+.med-entry {
+    display: flex;
+    gap: 10px;
+}
+
+.med-search {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid var(--primary-blue);
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.medications-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.med-tag {
+    background-color: var(--primary-blue);
+    color: var(--bg-white);
+    padding: 10px 15px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.med-tag button {
+    background: none;
+    border: none;
+    color: var(--bg-white);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0;
+}
+
+.common-interactions {
+    padding: 80px 20px;
+    background-color: var(--bg-light-gray);
+}
+
+.common-interactions h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.interactions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.interaction-card {
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.interaction-card.warning {
+    background-color: #fff3cd;
+    border: 2px solid #ff9800;
+}
+
+.interaction-card.caution {
+    background-color: #e3f2fd;
+    border: 2px solid var(--primary-blue);
+}
+
+.interaction-card.safe {
+    background-color: #e8f5e9;
+    border: 2px solid var(--medical-green);
+}
+
+.interaction-card i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.interaction-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.severity {
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.safety-tips-section {
+    padding: 80px 20px;
+}
+
+.safety-tips-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.tip-card {
+    background-color: var(--light-blue);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.tip-card i {
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+}
+
+.tip-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.tip-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* ========== CHAT PAGE ========== */
+.page-header-section {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    color: var(--bg-white);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.page-header-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.page-header-section p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.chat-main-section {
+    padding: 40px 20px;
+    min-height: 600px;
+}
+
+.chat-wrapper {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 20px;
+    background-color: var(--bg-white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.doctors-sidebar {
+    background-color: var(--light-blue);
+    padding: 20px;
+    border-right: 1px solid #d0e8f2;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.doctors-sidebar h3 {
+    margin-bottom: 15px;
+}
+
+.doctor-search {
+    margin-bottom: 20px;
+}
+
+.doctor-search input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--primary-blue);
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+.doctors-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.doctor-card {
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: var(--bg-white);
+    transition: all 0.3s;
+}
+
+.doctor-card:hover {
+    background-color: var(--bg-white);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.doctor-card.online {
+    border-left: 4px solid var(--medical-green);
+}
+
+.doctor-avatar {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--bg-white);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.doctor-info h4 {
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+}
+
+.doctor-info p {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-bottom: 5px;
+}
+
+.status {
+    font-size: 0.75rem;
+    color: var(--medical-green);
+    font-weight: 600;
+}
+
+.chat-area {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.chat-header {
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.chat-header h3 {
+    margin: 0;
+}
+
+.chat-header p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.messages-container {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.message {
+    padding: 12px 15px;
+    border-radius: 8px;
+    max-width: 70%;
+}
+
+.doctor-message {
+    align-self: flex-start;
+    background-color: var(--light-blue);
+    border-left: 3px solid var(--primary-blue);
+}
+
+.patient-message {
+    align-self: flex-end;
+    background-color: var(--primary-blue);
+    color: var(--bg-white);
+}
+
+.message p {
+    margin: 0 0 5px 0;
+}
+
+.time {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.chat-input {
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #f0f0f0;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.chat-input input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+}
+
+.chat-features {
+    padding: 80px 20px;
+    background-color: var(--bg-light-gray);
+}
+
+.chat-features h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.feature-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.feature-item i {
+    font-size: 1.8rem;
+    color: var(--primary-blue);
+    flex-shrink: 0;
+}
+
+.feature-item h4 {
+    margin-bottom: 5px;
+}
+
+.feature-item p {
+    color: var(--text-light);
+    margin: 0;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    .analyzer-wrapper,
+    .checker-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .chat-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .doctors-sidebar {
+        max-height: 250px;
+        border-right: none;
+        border-bottom: 1px solid #d0e8f2;
+    }
+
+    .med-entry {
+        flex-direction: column;
+    }
+
+    .message {
+        max-width: 100%;
+    }
+}

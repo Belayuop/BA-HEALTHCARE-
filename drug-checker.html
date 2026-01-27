@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drug Interaction Checker - MyHealth Hospital</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-hospital"></i>
+                <span>MyHealth Hospital</span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="login.html" class="nav-link btn-logout">Logout</a></li>
+            </ul>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Drug Checker Container -->
+    <div class="drug-checker-container">
+        <div class="container">
+            <div class="page-header-simple">
+                <h1>Drug Interaction Checker</h1>
+                <p>Check for potential drug interactions instantly</p>
+            </div>
+
+            <div class="drug-checker-wrapper">
+                <!-- Search Form -->
+                <section class="drug-search-section">
+                    <h2>Search Medications</h2>
+                    <form id="drugCheckerForm" class="drug-form">
+                        <div class="drug-inputs">
+                            <div class="drug-input-group">
+                                <label>Add Medications</label>
+                                <div class="drug-search-wrapper">
+                                    <input type="text" id="drugSearch" placeholder="Type medication name..." autocomplete="off">
+                                    <button type="button" id="addDrugBtn" class="btn btn-secondary">Add</button>
+                                </div>
+                                <div class="drug-suggestions" id="drugSuggestions" style="display:none;">
+                                    <ul id="suggestionsList"></ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Selected Medications -->
+                        <div class="selected-medications">
+                            <h3>Your Medications</h3>
+                            <div class="medications-tags" id="medicationsTags">
+                                <div class="medication-tag">
+                                    <span>Aspirin 500mg</span>
+                                    <button type="button" class="remove-tag">&times;</button>
+                                </div>
+                                <div class="medication-tag">
+                                    <span>Vitamin D 1000IU</span>
+                                    <button type="button" class="remove-tag">&times;</button>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-large">Check Interactions</button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Interactions Results -->
+                <section class="interactions-results" id="interactionsResults">
+                    <h2>Interaction Results</h2>
+                    
+                    <div class="interaction-summary">
+                        <div class="summary-item safe">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Safe Combinations</h4>
+                                <p>1 combination</p>
+                            </div>
+                        </div>
+                        <div class="summary-item warning">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <div>
+                                <h4>Warnings</h4>
+                                <p>0 warnings</p>
+                            </div>
+                        </div>
+                        <div class="summary-item danger">
+                            <i class="fas fa-times-circle"></i>
+                            <div>
+                                <h4>Serious Interactions</h4>
+                                <p>0 serious</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detailed Interactions -->
+                    <div class="interactions-list">
+                        <div class="interaction-item safe-interaction">
+                            <div class="interaction-header">
+                                <span class="interaction-badge safe">SAFE</span>
+                                <h3>Aspirin + Vitamin D</h3>
+                            </div>
+                            <div class="interaction-body">
+                                <p><strong>Severity:</strong> None</p>
+                                <p><strong>Description:</strong> No significant interaction found between these medications.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Medical Advice -->
+                    <div class="medical-advice">
+                        <i class="fas fa-lightbulb"></i>
+                        <div>
+                            <h4>💡 Important</h4>
+                            <p>This tool is for informational purposes only. Always consult with your healthcare provider before starting or stopping any medication.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Common Medications Quick Add -->
+                <section class="common-drugs">
+                    <h2>Common Medications</h2>
+                    <div class="drugs-grid">
+                        <button class="drug-quick-add">Aspirin</button>
+                        <button class="drug-quick-add">Ibuprofen</button>
+                        <button class="drug-quick-add">Paracetamol</button>
+                        <button class="drug-quick-add">Lisinopril</button>
+                        <button class="drug-quick-add">Metformin</button>
+                        <button class="drug-quick-add">Vitamin D</button>
+                        <button class="drug-quick-add">Vitamin C</button>
+                        <button class="drug-quick-add">Omeprazole</button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 MyHealth Hospital. Drug Database Updated Regularly</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

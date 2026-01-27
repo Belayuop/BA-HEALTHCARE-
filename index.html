@@ -1,103 +1,343 @@
-!DOCTYPE html > <html lang = "en" > <head > <meta charset = "UTF-8" > <meta name = "viewport"content = "width=device-width, initial-scale=1.0" > <title > Register - MyHealthID < /title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https:/ / cdnjs.cloudflare.com / ajax / libs / font - awesome / 6.0.0 / css / all.min.css ">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyHealth Hospital - Advanced Healthcare Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="auth - body ">
-    <nav class="navbar ">
-        <div class="container nav - container ">
-            <div class="logo ">
-                <a href="index.html " style="color: white;
-text - decoration: none;
-">
-                    <i class="fas fa - heartbeat "></i> MyHealthID
-                </a>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-hospital"></i>
+                <span>MyHealth Hospital</span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="login.html" class="nav-link btn-login">Patient Portal</a></li>
+            </ul>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </nav>
 
-    <div class="auth - container ">
-        <div class="auth - card ">
-            <h2>Create Account</h2>
-            <p>Join the National Health Network</p>
-            
-            <form id="registerForm ">
-                <div class="form - group ">
-                    <label for="role ">I am a:</label>
-                    <select id="role " name="role " required>
-                        <option value="patient ">Patient</option>
-                        <option value="doctor ">Doctor / Health Professional</option>
-                        <option value="admin ">Hospital Administrator</option>
-                    </select>
-                </div>
-
-                <div class="form - group ">
-                    <label for="full_name ">Full Name</label>
-                    <input type="text " name="full_name " required placeholder="Belay Kassaneaw ">
-                </div>
-
-                <div class="form - group ">
-                    <label for="national_id ">National ID (NID)</label>
-                    <input type="text " name="national_id " required placeholder="NID - 12345678 ">
-                    <small>This will be your unique medical identifier.</small>
-                </div>
-                
-                <div class="form - group ">
-                    <label for="email ">Email Address</label>
-                    <input type="email " name="email " required placeholder="email@domain.com ">
-                </div>
-                
-                <div class="form - group ">
-                    <label for="password ">Password</label>
-                    <input type="password " name="password " required placeholder="••••••••">
-                </div>
-
-                <button type="submit " class="btn btn - primary btn - block ">Register & Generate ID</button>
-            </form>
-            
-            <p class="auth - footer ">
-                Already have an account? <a href="login.html ">Login here</a>
-            </p>
+    <!-- Hero Section with Advanced Features -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Advanced Healthcare at Your Fingertips</h1>
+            <p>National-Wide Health ID System with AI-Powered Diagnostics</p>
+            <div class="hero-features">
+                <span class="feature-badge"><i class="fas fa-shield-alt"></i> Secure</span>
+                <span class="feature-badge"><i class="fas fa-robot"></i> AI-Powered</span>
+                <span class="feature-badge"><i class="fas fa-globe"></i> National-Wide</span>
+            </div>
+            <div class="hero-buttons">
+                <a href="login.html" class="btn btn-primary btn-large">Access Patient Portal</a>
+                <a href="#services" class="btn btn-secondary">Explore Services</a>
+            </div>
         </div>
-    </div>
+        <div class="hero-image">
+            <div class="floating-card">
+                <i class="fas fa-stethoscope"></i>
+            </div>
+        </div>
+    </section>
 
-    <script src="script.js "></script>
+    <!-- Premium Services Section -->
+    <section class="premium-services" id="services">
+        <div class="container">
+            <h2>Our Premium Services</h2>
+            <p class="section-subtitle">Comprehensive healthcare solutions powered by AI and expert professionals</p>
+            
+            <div class="services-showcase">
+                <div class="service-showcase-card">
+                    <div class="service-icon ai-service">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI Dermatology Analysis</h3>
+                    <p>Advanced skin condition analysis using machine learning algorithms</p>
+                    <a href="dermatology-ai.html" class="service-btn">Start Analysis</a>
+                </div>
+
+                <div class="service-showcase-card">
+                    <div class="service-icon chat-service">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Live Doctor Chat</h3>
+                    <p>Real-time consultation with verified healthcare professionals</p>
+                    <a href="live-chat.html" class="service-btn">Start Chat</a>
+                </div>
+
+                <div class="service-showcase-card">
+                    <div class="service-icon appointment-service">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Smart Appointments</h3>
+                    <p>Schedule appointments with integrated availability management</p>
+                    <a href="appointments.html" class="service-btn">Book Now</a>
+                </div>
+
+                <div class="service-showcase-card">
+                    <div class="service-icon drug-service">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <h3>Drug Interaction Checker</h3>
+                    <p>Check medications for dangerous interactions instantly</p>
+                    <a href="drug-checker.html" class="service-btn">Check Drugs</a>
+                </div>
+
+                <div class="service-showcase-card">
+                    <div class="service-icon history-service">
+                        <i class="fas fa-file-medical"></i>
+                    </div>
+                    <h3>Medical History Portal</h3>
+                    <p>Access complete medical records with national health ID</p>
+                    <a href="dashboard.html" class="service-btn">View Records</a>
+                </div>
+
+                <div class="service-showcase-card">
+                    <div class="service-icon security-service">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Secure Health ID</h3>
+                    <p>National-wide unified health identification system</p>
+                    <a href="login.html" class="service-btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
+        <div class="container">
+            <h2>Why Choose MyHealth Hospital?</h2>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Expert Medical Team</h3>
+                    <p>Board-certified doctors and specialists available 24/7</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Maximum Security</h3>
+                    <p>HIPAA compliant with military-grade encryption</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Always Connected</h3>
+                    <p>Access healthcare from any device, anywhere</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI-Powered Diagnostics</h3>
+                    <p>Machine learning for faster and accurate diagnosis</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>National Coverage</h3>
+                    <p>Unified health ID system across the nation</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Dedicated customer support available round the clock</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <h2>Meet Our Team</h2>
+            <p class="section-subtitle">Ethiopian University Students | Founders & Developers</p>
+            
+            <div class="team-grid">
+                <!-- Team Member 1 -->
+                <div class="team-card">
+                    <div class="team-image-container">
+                        <img src="images/belay-kassanew.jpg" alt="Belay Kassanew" class="team-image">
+                        <div class="team-overlay">
+                            <div class="team-social">
+                                <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                                <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Belay Kassanew</h3>
+                        <p class="team-role">Co-Founder & Lead Developer</p>
+                        <p class="team-bio">Full-stack developer specializing in healthcare platforms and AI integration</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="team-card">
+                    <div class="team-image-container">
+                        <img src="https://via.placeholder.com/300x300?text=Addisu+Yirdaw" alt="Addisu Yirdaw" class="team-image">
+                        <div class="team-overlay">
+                            <div class="team-social">
+                                <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                                <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Addisu Yirdaw</h3>
+                        <p class="team-role">Co-Founder & Backend Engineer</p>
+                        <p class="team-bio">Backend specialist with expertise in Python, PHP, and database architecture</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="team-card">
+                    <div class="team-image-container">
+                        <img src="https://via.placeholder.com/300x300?text=Besufikad+Zenebe" alt="Besufikad Zenebe" class="team-image">
+                        <div class="team-overlay">
+                            <div class="team-social">
+                                <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                                <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Besufikad Zenebe</h3>
+                        <p class="team-role">Co-Founder & UI/UX Designer</p>
+                        <p class="team-bio">Creative designer focused on user experience and healthcare interface innovation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="statistics">
+        <div class="container">
+            <div class="stat-item">
+                <h3>500K+</h3>
+                <p>Active Patients</p>
+            </div>
+            <div class="stat-item">
+                <h3>2500+</h3>
+                <p>Healthcare Professionals</p>
+            </div>
+            <div class="stat-item">
+                <h3>1M+</h3>
+                <p>Consultations Completed</p>
+            </div>
+            <div class="stat-item">
+                <h3>50+</h3>
+                <p>Departments</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-advanced">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Start Your Healthcare Journey Today</h2>
+                <p>Join thousands of patients receiving world-class healthcare</p>
+                <div class="cta-buttons">
+                    <a href="register.html" class="btn btn-primary btn-large">Create Account</a>
+                    <a href="contact.html" class="btn btn-secondary btn-large">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>MyHealth Hospital</h4>
+                    <p>Advancing healthcare through technology and expertise</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="dermatology-ai.html">AI Dermatology</a></li>
+                        <li><a href="appointments.html">Appointments</a></li>
+                        <li><a href="drug-checker.html">Drug Checker</a></li>
+                        <li><a href="live-chat.html">Live Chat</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal & Support</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">HIPAA Compliance</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Development Team</h4>
+                    <p class="team-note"><strong>Ethiopian University Students</strong></p>
+                    <ul class="team-list">
+                        <li>Belay Kassanew</li>
+                        <li>Addisu Yirdaw</li>
+                        <li>Besufikad Zenebe</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MyHealth Hospital. All rights reserved. | Built by Ethiopian University Students</p>
+                <p class="footer-tagline">Advancing Healthcare Through Innovation & Technology</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
-</html><!DOCTYPE html>
-<html lang="en ">
-<head>
-    <meta charset="UTF - 8 ">
-    <meta name="viewport " content="width = device - width,
-initial - scale = 1.0 ">
-    <title>Login - MyHealthID</title>
-    <link rel="stylesheet " href="styles.css ">
-    <link rel="stylesheet " href="https: //cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-< /head>
-<body class="auth-body">
-    <nav class="navbar">
-        <div class="container nav-container">
-            <div class="logo">
-                <a href="index.html" style="color: white; text-decoration: none;">
-                    <i class="fas fa-heartbeat"></i > MyHealthID < /a>
-            </div > </div>
-    </nav >
-
-<div class = "auth-container" > <div class = "auth-card" > <h2 > Welcome Back < /h2>
-            <p>Secure access to the National Health Portal</p >
-
-<form id = "loginForm" > <div class = "form-group" > <label
-for = "email" > Email Address < /label>
-                    <input type="email" id="email" required placeholder="doctor@hospital.et">
-                </div >
-
-<div class = "form-group" > <label
-for = "password" > Password < /label>
-                    <input type="password" id="password" required placeholder="••••••••">
-                </div >
-
-<button type = "submit"class = "btn btn-primary btn-block" > Login < /button>
-            </form >
-
-<p class = "auth-footer" > Don 't have an ID? <a href="register.html">Register Now</a>
+</html>
             </p>
         </div>
     </div>

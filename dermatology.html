@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Dermatologist - Skin Analysis | MyHealth Hospital</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-hospital-user"></i>
+                </div>
+                <div class="logo-text">
+                    <h2>MyHealth Hospital</h2>
+                    <p>National Health Network</p>
+                </div>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="dermatology.html" class="nav-link active">AI Dermatology</a></li>
+                <li><a href="drug-checker.html" class="nav-link">Drug Checker</a></li>
+                <li><a href="telemedicine.html" class="nav-link">Telemedicine</a></li>
+                <li><a href="login.html" class="nav-link btn-login">Login</a></li>
+            </ul>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-modern">
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content-modern">
+            <div class="hero-text">
+                <h1>AI Skin Analyzer</h1>
+                <p>Advanced dermatological analysis powered by artificial intelligence. Get instant skin health assessment and professional recommendations.</p>
+                <div class="hero-buttons">
+                    <a href="#analyzer" class="btn btn-action">START ANALYSIS</a>
+                </div>
+            </div>
+            <div class="hero-illustration">
+                <i class="fas fa-spa"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Take a Photo</h3>
+                    <p>Capture a clear photo of your skin concern from your device</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>AI Analysis</h3>
+                    <p>Our advanced AI instantly analyzes your skin image</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Get Results</h3>
+                    <p>Receive detailed personalized report with findings</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Doctor Consultation</h3>
+                    <p>Chat with dermatologists for professional advice</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analyzer Section -->
+    <section class="analyzer-section" id="analyzer">
+        <div class="container">
+            <div class="analyzer-wrapper">
+                <div class="analyzer-content">
+                    <h2>Start Your Skin Analysis</h2>
+                    <p>Upload or capture a photo for instant AI analysis</p>
+                    
+                    <div class="upload-area" id="uploadArea">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h4>Click or drag your image here</h4>
+                        <p>Supported formats: JPG, PNG (Max 5MB)</p>
+                        <input type="file" id="imageInput" accept="image/*" style="display:none;">
+                    </div>
+
+                    <div id="resultSection" style="display:none;">
+                        <h3>Analysis Results</h3>
+                        <div class="result-item">
+                            <label>Condition Type:</label>
+                            <p id="conditionType">-</p>
+                        </div>
+                        <div class="result-item">
+                            <label>Severity Level:</label>
+                            <p id="severityLevel">-</p>
+                        </div>
+                        <div class="result-item">
+                            <label>Recommendation:</label>
+                            <p id="recommendation">-</p>
+                        </div>
+                        <a href="chat.html" class="btn btn-primary">Consult Doctor</a>
+                    </div>
+                </div>
+                <div class="analyzer-image">
+                    <i class="fas fa-microscope"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2>Why Choose Our AI Dermatologist?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h3>Instant Results</h3>
+                    <p>Get analysis in seconds, not days</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Privacy Protected</h3>
+                    <p>Your images are encrypted and secure</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>AI Powered</h3>
+                    <p>Trained on millions of skin cases</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Accurate</h3>
+                    <p>98% accuracy rate verified</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Doctor Support</h3>
+                    <p>Connect with real dermatologists</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Available 24/7</h3>
+                    <p>Anytime, anywhere access</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conditions Detected -->
+    <section class="conditions-section">
+        <div class="container">
+            <h2>Conditions We Can Detect</h2>
+            <div class="conditions-grid">
+                <div class="condition-item">
+                    <h4>Acne</h4>
+                    <p>Different types and severity levels</p>
+                </div>
+                <div class="condition-item">
+                    <h4>Eczema</h4>
+                    <p>Dermatitis and skin inflammation</p>
+                </div>
+                <div class="condition-item">
+                    <h4>Psoriasis</h4>
+                    <p>Autoimmune skin conditions</p>
+                </div>
+                <div class="condition-item">
+                    <h4>Moles</h4>
+                    <p>Benign and suspicious lesions</p>
+                </div>
+                <div class="condition-item">
+                    <h4>Rashes</h4>
+                    <p>Allergic and infectious rashes</p>
+                </div>
+                <div class="condition-item">
+                    <h4>Skin Cancer</h4>
+                    <p>Melanoma and other skin cancers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-hospital-user"></i>
+                        <h4>MyHealth Hospital</h4>
+                    </div>
+                    <p>Your trusted healthcare partner powered by AI</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="dermatology.html">AI Dermatology</a></li>
+                        <li><a href="drug-checker.html">Drug Checker</a></li>
+                        <li><a href="telemedicine.html">Telemedicine</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MyHealth Hospital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="dermatology.js"></script>
+</body>
+</html>
