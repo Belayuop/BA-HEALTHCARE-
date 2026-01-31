@@ -4,173 +4,220 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - MyHealthID</title>
-    <link rel="stylesheet" href="style.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
-        body { font-family: Arial, sans-serif; margin:0; padding:0; line-height:1.6; }
-        .container { width:90%; max-width:1200px; margin: auto; padding: 20px; }
-        h1,h2,h3,h4 { margin-bottom: 15px; }
-        /* Navbar */
-        .navbar { display:flex; justify-content:space-between; align-items:center; padding: 15px 20px; background:#007bff; color:#fff; }
-        .nav-menu { list-style:none; display:flex; gap:15px; margin:0; }
-        .nav-menu li a { color:#fff; text-decoration:none; padding:5px 10px; }
-        .nav-menu li a.btn-login { background:#fff; color:#007bff; border-radius:5px; }
-        .page-header { text-align:center; padding:60px 20px; background:#f1f1f1; margin-bottom:40px; }
-        .about-grid { display:flex; flex-wrap:wrap; gap:20px; align-items:center; margin-bottom:40px; }
-        .about-text { flex:1; }
-        .about-image { flex:1; text-align:center; font-size:60px; color:#007bff; }
-        .about-grid.reverse { flex-direction:row-reverse; }
-        /* Photo Upload */
-        .photo-upload-section input { margin-top:10px; }
-        /* Team */
-        .team-grid { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
-        .team-member { background:#f9f9f9; padding:20px; border-radius:10px; width:250px; text-align:center; box-shadow:0 4px 8px rgba(0,0,0,0.1); }
-        .member-icon { font-size:50px; margin-bottom:10px; color:#007bff; }
-        /* Footer */
-        .footer { background:#222; color:#fff; padding:40px 20px; }
-        .footer-section { margin-bottom:20px; }
-        .footer-section ul { list-style:none; padding:0; }
-        .footer-section ul li a { color:#fff; text-decoration:none; }
-        .social-links a { margin-right:10px; color:#fff; }
-        /* Image container */
-        .image-container { margin:30px 0; text-align:center; }
-        .image-container img { max-width:100%; height:auto; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.2); }
-        @media(max-width:768px){ .about-grid, .about-grid.reverse { flex-direction:column; } }
+        /* RESET (THIS REMOVES THE LINE PROBLEM) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: #ffffff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1, h2, h3, h4 {
+            margin-bottom: 15px;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: #007bff;
+            color: #fff;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-menu li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+        }
+
+        .btn-login {
+            background: #fff;
+            color: #007bff !important;
+            border-radius: 5px;
+        }
+
+        /* HEADER */
+        .page-header {
+            text-align: center;
+            padding: 60px 20px;
+            background: #f1f1f1;
+        }
+
+        /* ABOUT */
+        .about-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .about-grid.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+            font-size: 60px;
+            color: #007bff;
+        }
+
+        /* IMAGE */
+        .image-container {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* TEAM */
+        .team-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .team-member {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .member-icon {
+            font-size: 50px;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #222;
+            color: #fff;
+            padding: 40px 20px;
+        }
+
+        .footer-section {
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .social-links a {
+            margin-right: 10px;
+            color: #fff;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .about-grid,
+            .about-grid.reverse {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
+
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="logo"><i class="fas fa-heartbeat"></i> MyHealthID</div>
-        <ul class="nav-menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html" class="active">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="login.html" class="btn-login">Login</a></li>
-        </ul>
-    </nav>
 
-    <!-- Page Header -->
-    <section class="page-header">
-        <div class="container">
-            <h1>About MyHealthID</h1>
-            <p>Our Mission & Vision</p>
+<nav class="navbar">
+    <div class="logo"><i class="fas fa-heartbeat"></i> MyHealthID</div>
+    <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html" class="btn-login">Login</a></li>
+    </ul>
+</nav>
+
+<section class="page-header">
+    <div class="container">
+        <h1>About MyHealthID</h1>
+        <p>Our Mission & Vision</p>
+    </div>
+</section>
+
+<section class="container">
+
+    <div class="about-grid">
+        <div class="about-text">
+            <h2>Who We Are</h2>
+            <p>MyHealthID is a revolutionary healthcare platform designed to bridge the gap between patients and healthcare providers.</p>
         </div>
-    </section>
+        <div class="about-image"><i class="fas fa-stethoscope"></i></div>
+    </div>
 
-    <!-- About Content -->
-    <section class="about-section">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-text">
-                    <h2>Who We Are</h2>
-                    <p>MyHealthID is a revolutionary healthcare platform designed to bridge the gap between patients and healthcare providers. Our mission is to make quality healthcare accessible to everyone through secure digital solutions.</p>
-                    <p>Founded in 2024, we've been committed to transforming how people manage their health and access medical services.</p>
-                </div>
-                <div class="about-image"><i class="fas fa-stethoscope"></i></div>
-            </div>
-
-            <div class="about-grid reverse">
-                <div class="about-text">
-                    <h2>Our Vision</h2>
-                    <p>We envision a world where every person has instant access to their complete health history and can connect with healthcare professionals anywhere, anytime.</p>
-                    <p>Through innovation and technology, we're creating a healthier, more connected world.</p>
-                </div>
-                <div class="about-image"><i class="fas fa-globe"></i></div>
-            </div>
-
-            <!-- Smart Image Gallery -->
-            <div class="image-container">
-                <h2>Hospital Image</h2>
-                <img src="https://raw.githubusercontent.com/Belayuop/BA-HEALTHCARE-/d3fd99463cac996483616764bfa6fc674c5d656a/hospital.jpg" 
-                     alt="Hospital Image">
-            </div>
-
-            <!-- Photo Upload Section -->
-            <div class="photo-upload-section">
-                <h2>Upload Your Photo</h2>
-                <p>Choose a photo from your computer</p>
-                <input type="file" id="photoUpload" accept="image/*">
-                <br>
-                <button onclick="uploadPhoto()">Upload Photo</button>
-                <div id="photoPreview"></div>
-            </div>
-
-            <!-- Team Section -->
-            <div class="team-section">
-                <h2>Our Team</h2>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <div class="member-icon"><i class="fas fa-user-md"></i></div>
-                        <h3>Dr. Abebe Tekle</h3>
-                        <p>Chief Medical Officer</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="member-icon"><i class="fas fa-code"></i></div>
-                        <h3>Belay Kassaneaw</h3>
-                        <p>Chief Technology Officer</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="member-icon"><i class="fas fa-chart-pie"></i></div>
-                        <h3>Sarah Johnson</h3>
-                        <p>Business Development</p>
-                    </div>
-                </div>
-            </div>
+    <div class="about-grid reverse">
+        <div class="about-text">
+            <h2>Our Vision</h2>
+            <p>Instant, secure access to health records anywhere in the world.</p>
         </div>
-    </section>
+        <div class="about-image"><i class="fas fa-globe"></i></div>
+    </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-section">
-                <h4>MyHealthID</h4>
-                <p>Transforming healthcare delivery</p>
-            </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Follow Us</h4>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom" style="text-align:center; margin-top:20px;">
-            <p>&copy; 2026 MyHealthID. All rights reserved.</p>
-        </div>
-    </footer>
+    <div class="image-container">
+        <h2>Hospital Image</h2>
+        <img src="https://raw.githubusercontent.com/Belayuop/BA-HEALTHCARE-/d3fd99463cac996483616764bfa6fc674c5d656a/hospital.jpg">
+    </div>
 
-    <script>
-        function uploadPhoto() {
-            const fileInput = document.getElementById('photoUpload');
-            const file = fileInput.files[0];
-            if(file){
-                const reader = new FileReader();
-                reader.onload = function(e){
-                    document.getElementById('photoPreview').innerHTML = 
-                        '<img src="'+e.target.result+'" style="max-width:300px; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.2); margin-top:20px;">';
-                    alert('Photo uploaded successfully! ✓');
-                }
-                reader.readAsDataURL(file);
-            } else { alert('Please select a photo first'); }
-        }
-    </script>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <p style="text-align:center;">© 2026 MyHealthID. All rights reserved.</p>
+    </div>
+</footer>
+
 </body>
 </html>
