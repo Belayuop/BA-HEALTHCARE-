@@ -1,4 +1,4 @@
-/* ================= GLOBAL ================= */
+/* ================= GLOBAL RESET ================= */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -9,60 +9,83 @@ body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     background-color: var(--bg-white);
+    color: var(--text-dark);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 section {
-    max-width: 1200px; /* center content */
+    max-width: 1200px;
     margin: 0 auto;
     padding: 80px 20px;
 }
 
-.main-wrapper {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 20px;
+/* ================= REMOVE ACCIDENTAL LINES ================= */
+*::before,
+*::after {
+    content: none !important;
 }
 
-/* ================= DERMATOLOGY PAGE ================= */
-.how-it-works {
-    background-color: var(--bg-light-gray);
+.doctor-card,
+.condition-item,
+.interaction-card,
+.tip-card,
+.step-card,
+.benefit-card {
+    border: none !important;
 }
 
-.how-it-works h2,
-.benefits-section h2,
-.conditions-section h2,
-.checker-section-full h2,
-.common-interactions h2,
-.safety-tips-section h2,
-.chat-features h2 {
+/* ================= HEADINGS ================= */
+h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 50px;
+    color: var(--primary-blue);
 }
 
+h3, h4 {
+    margin-bottom: 10px;
+    color: var(--primary-blue);
+}
+
+/* ================= GRID LAYOUTS ================= */
 .steps-grid,
 .benefits-grid,
 .conditions-grid,
 .interactions-grid,
 .tips-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
 }
 
+/* ================= CARDS ================= */
 .step-card,
 .benefit-card,
 .condition-item,
 .interaction-card,
 .tip-card {
     background-color: var(--bg-white);
-    padding: 25px 30px;
-    border-radius: 12px;
+    padding: 30px;
+    border-radius: 15px;
     text-align: center;
-    box-shadow: var(--shadow);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
 }
 
+.step-card:hover,
+.benefit-card:hover,
+.condition-item:hover,
+.interaction-card:hover,
+.tip-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+}
+
+/* ================= STEP NUMBER ================= */
 .step-number {
     width: 60px;
     height: 60px;
@@ -74,89 +97,89 @@ section {
     justify-content: center;
     font-size: 1.8rem;
     font-weight: bold;
-    margin: 0 auto 15px;
+    margin: 0 auto 20px;
 }
 
-/* Analyzer & Drug Checker */
+/* ================= ANALYZER & DRUG CHECKER ================= */
 .analyzer-wrapper,
 .checker-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: flex-start;
 }
 
 .upload-area,
 .medications-input {
     border: 3px dashed var(--primary-blue);
-    border-radius: 12px;
+    border-radius: 15px;
     padding: 50px;
     text-align: center;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 
-.upload-area:hover {
+.upload-area:hover,
+.medications-input:hover {
     border-color: var(--accent-red);
-    background-color: var(--light-blue);
+    background-color: #e3f2fd;
 }
 
-.med-entry {
-    display: flex;
-    gap: 10px;
-}
-
-.med-search {
-    flex: 1;
-    padding: 12px 15px;
-    border: 2px solid var(--primary-blue);
-    border-radius: 8px;
-    font-size: 1rem;
-}
-
-/* Chat Section */
+/* ================= CHAT SECTION ================= */
 .chat-wrapper {
     display: grid;
-    grid-template-columns: minmax(250px, 1fr) 2fr;
+    grid-template-columns: 1fr;
     gap: 20px;
     background-color: var(--bg-white);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
-    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     margin: 0 auto;
 }
 
-.doctors-sidebar {
-    min-width: 250px;
-    max-width: 350px;
-    background-color: var(--light-blue);
-    padding: 20px;
-    border-right: 1px solid #d0e8f2;
-    overflow-y: auto;
-}
-
+.doctors-sidebar,
 .chat-area {
-    min-width: 300px;
     width: 100%;
-    display: flex;
-    flex-direction: column;
     padding: 20px;
+    border-radius: 12px;
+    background-color: #f7f9fc;
 }
 
 .doctor-card {
     display: flex;
     gap: 12px;
     padding: 12px;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
+    transition: all 0.3s ease;
     background-color: var(--bg-white);
-    transition: all 0.3s;
-    border-left: none; /* remove accidental colored line */
+}
+
+.doctor-card:hover {
+    background-color: #e8f5ff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 .doctor-card.online {
     border-left: 4px solid var(--medical-green);
+}
+
+/* ================= BUTTONS & TAGS ================= */
+.med-tag {
+    background-color: var(--primary-blue);
+    color: var(--bg-white);
+    padding: 8px 15px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.med-tag button {
+    background: none;
+    border: none;
+    color: var(--bg-white);
+    cursor: pointer;
+    font-size: 1.2rem;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -164,21 +187,11 @@ section {
     .analyzer-wrapper,
     .checker-wrapper {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 30px;
     }
 }
 
 @media (max-width: 768px) {
-    .chat-wrapper {
-        grid-template-columns: 1fr;
-    }
-
-    .doctors-sidebar {
-        max-height: 250px;
-        border-right: none;
-        border-bottom: 1px solid #d0e8f2;
-    }
-
     .med-entry {
         flex-direction: column;
     }
