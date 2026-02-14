@@ -3,221 +3,275 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - MyHealthID</title>
+    <title>MyHealthID | Unified Healthcare Portal</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
-        /* RESET (THIS REMOVES THE LINE PROBLEM) */
+        /* Modern Reset - Removing all "robotic" borders and lines */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            border: none;
+            outline: none;
         }
 
-        html, body {
-            width: 100%;
-            height: 100%;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background: #ffffff;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
-        }
-
-        h1, h2, h3, h4 {
-            margin-bottom: 15px;
-        }
-
-        /* NAVBAR */
-        .navbar {
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #eef2f7; /* Soft medical blue-gray background */
+            color: #334155;
             display: flex;
-            justify-content: space-between;
+            justify-content: center; /* Centers the whole site on the computer screen */
+        }
+
+        /* CENTERED CONTAINER: This keeps the site from touching the desktop edges */
+        .page-container {
+            width: 100%;
+            max-width: 1100px;
+            background-color: #ffffff;
+            min-height: 100vh;
+            box-shadow: 0 0 40px rgba(0,0,0,0.05);
+        }
+
+        /* HORIZONTAL NAVBAR: Items flow from left to right */
+        .nav-header {
+            background-color: #007bff;
+            padding: 20px 50px;
+            display: flex;
             align-items: center;
-            padding: 15px 20px;
-            background: #007bff;
-            color: #fff;
         }
 
-        .logo {
-            font-size: 20px;
-            font-weight: bold;
+        .brand-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-right: 50px; /* Space between logo and first menu item */
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .nav-menu {
+        .horizontal-menu {
             list-style: none;
             display: flex;
-            gap: 15px;
+            gap: 30px;
         }
 
-        .nav-menu li a {
-            color: #fff;
+        .horizontal-menu li a {
+            color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
-            padding: 5px 10px;
+            font-weight: 500;
+            font-size: 16px;
+            transition: 0.3s;
         }
 
-        .btn-login {
-            background: #fff;
-            color: #007bff !important;
-            border-radius: 5px;
+        .horizontal-menu li a:hover {
+            color: #ffffff;
         }
 
-        /* HEADER */
-        .page-header {
-            text-align: center;
-            padding: 60px 20px;
-            background: #f1f1f1;
+        /* MAIN FORM AREA */
+        .content-body {
+            padding: 60px 80px;
         }
 
-        /* ABOUT */
-        .about-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            align-items: center;
+        .welcome-text {
             margin-bottom: 40px;
         }
 
-        .about-grid.reverse {
-            flex-direction: row-reverse;
-        }
-
-        .about-text {
-            flex: 1;
-        }
-
-        .about-image {
-            flex: 1;
-            text-align: center;
-            font-size: 60px;
-            color: #007bff;
-        }
-
-        /* IMAGE */
-        .image-container {
-            margin: 40px 0;
-            text-align: center;
-        }
-
-        .image-container img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-
-        /* TEAM */
-        .team-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .team-member {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 10px;
-            width: 250px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        .member-icon {
-            font-size: 50px;
+        .welcome-text h1 {
+            font-size: 32px;
+            color: #0f172a;
             margin-bottom: 10px;
+        }
+
+        /* FORM STYLING - MANDATORY IDENTIFICATION */
+        .portal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .input-group label {
+            font-weight: 600;
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .modern-input {
+            padding: 15px;
+            background-color: #f8fafc;
+            border-radius: 10px;
+            font-size: 16px;
+            color: #1e293b;
+            transition: background 0.3s;
+        }
+
+        .modern-input:focus {
+            background-color: #f1f5f9;
+        }
+
+        /* SYMPTOMS SECTION - YES/NO SELECTION */
+        .symptoms-panel {
+            background-color: #f1f7ff;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 10px;
+        }
+
+        .symptoms-panel h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
             color: #007bff;
         }
 
-        /* FOOTER */
-        .footer {
-            background: #222;
-            color: #fff;
-            padding: 40px 20px;
+        .symptom-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
         }
 
-        .footer-section {
-            margin-bottom: 20px;
+        .choice-group {
+            display: flex;
+            gap: 20px;
         }
 
-        .footer-section ul {
-            list-style: none;
+        .choice-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-weight: 500;
         }
 
-        .footer-section ul li a {
-            color: #fff;
-            text-decoration: none;
+        /* ROLE-BASED LOGIN BUTTON */
+        .btn-action {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 18px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
         }
 
-        .social-links a {
-            margin-right: 10px;
-            color: #fff;
+        .btn-action:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
         }
 
-        /* MOBILE */
-        @media (max-width: 768px) {
-            .about-grid,
-            .about-grid.reverse {
-                flex-direction: column;
-            }
+        /* FOOTER & GALLERY */
+        .hospital-preview {
+            margin-top: 60px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .hospital-preview img {
+            width: 100%;
+            display: block;
+        }
+
+        .site-footer {
+            padding: 40px;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 14px;
         }
     </style>
 </head>
-
 <body>
 
-<nav class="navbar">
-    <div class="logo"><i class="fas fa-heartbeat"></i> MyHealthID</div>
-    <ul class="nav-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="login.html" class="btn-login">Login</a></li>
-    </ul>
-</nav>
-
-<section class="page-header">
-    <div class="container">
-        <h1>About MyHealthID</h1>
-        <p>Our Mission & Vision</p>
-    </div>
-</section>
-
-<section class="container">
-
-    <div class="about-grid">
-        <div class="about-text">
-            <h2>Who We Are</h2>
-            <p>MyHealthID is a revolutionary healthcare platform designed to bridge the gap between patients and healthcare providers.</p>
+<div class="page-container">
+    <header class="nav-header">
+        <div class="brand-logo">
+            <i class="fas fa-heartbeat"></i> MyHealthID
         </div>
-        <div class="about-image"><i class="fas fa-stethoscope"></i></div>
-    </div>
+        <ul class="horizontal-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </header>
 
-    <div class="about-grid reverse">
-        <div class="about-text">
-            <h2>Our Vision</h2>
-            <p>Instant, secure access to health records anywhere in the world.</p>
+    <main class="content-body">
+        <section class="welcome-text">
+            <h1>Unified Access Portal</h1>
+            <p>Please provide your mandatory identification and symptom screening to proceed.</p>
+        </section>
+
+        <form class="portal-form">
+            <div class="input-group">
+                <label>System Role Selection</label>
+                <select class="modern-input" required>
+                    <option value="">-- Select your access level --</option>
+                    <option value="patient">Patient</option>
+                    <option value="doctor">Medical Doctor</option>
+                    <option value="manager">Hospital Manager</option>
+                    <option value="owner">System Administrator</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Full Name (Mandatory)</label>
+                <input type="text" class="modern-input" placeholder="Full name as it appears on ID" required>
+            </div>
+
+            <div class="input-group">
+                <label>Identification ID Number</label>
+                <input type="text" class="modern-input" placeholder="National ID, Passport or License" required>
+            </div>
+
+            <div class="symptoms-panel">
+                <h3>Required Health Screening</h3>
+                
+                <div class="symptom-row">
+                    <span>History of Oncology (Cancer)?</span>
+                    <div class="choice-group">
+                        <label><input type="radio" name="cancer" value="yes" required> Yes</label>
+                        <label><input type="radio" name="cancer" value="no"> No</label>
+                    </div>
+                </div>
+
+                <div class="symptom-row">
+                    <span>Cardiovascular (Heart) Issues?</span>
+                    <div class="choice-group">
+                        <label><input type="radio" name="heart" value="yes" required> Yes</label>
+                        <label><input type="radio" name="heart" value="no"> No</label>
+                    </div>
+                </div>
+
+                <div class="symptom-row">
+                    <span>Pulmonary (Lung) Complications?</span>
+                    <div class="choice-group">
+                        <label><input type="radio" name="lung" value="yes" required> Yes</label>
+                        <label><input type="radio" name="lung" value="no"> No</label>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-action">Verify Identity & Enter Portal</button>
+        </form>
+
+        <div class="hospital-preview">
+            <img src="https://raw.githubusercontent.com/Belayuop/BA-HEALTHCARE-/d3fd99463cac996483616764bfa6fc674c5d656a/hospital.jpg" alt="Partner Network Hospital">
         </div>
-        <div class="about-image"><i class="fas fa-globe"></i></div>
-    </div>
+    </main>
 
-    <div class="image-container">
-        <h2>Hospital Image</h2>
-        <img src="https://raw.githubusercontent.com/Belayuop/BA-HEALTHCARE-/d3fd99463cac996483616764bfa6fc674c5d656a/hospital.jpg">
-    </div>
-
-</section>
-
-<footer class="footer">
-    <div class="container">
-        <p style="text-align:center;">© 2026 MyHealthID. All rights reserved.</p>
-    </div>
-</footer>
+    <footer class="site-footer">
+        &copy; 2026 MyHealthID &bull; Secure Healthcare Data Management &bull; Ethiopia
+    </footer>
+</div>
 
 </body>
 </html>
