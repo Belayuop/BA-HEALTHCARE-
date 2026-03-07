@@ -35,7 +35,196 @@ tr:nth-child(even) {background:#f2f2f2;}
 <input type="text" name="location" placeholder="Search by location">
 <button type="submit">Search</button>
 </form>
+<?php
 
+header("Content-Type: application/json");
+
+/* DATABASE CONNECTION */
+
+$host = "localhost";
+$user = "root";
+$password = "";
+$db = "myhealthid";
+
+$conn = new mysqli($host,$user,$password,$db);
+
+if($conn->connect_error){
+die("DB ERROR");
+}
+
+$action = $_GET['action'] ?? "";
+
+
+/* =========================
+REGISTER USER
+========================= */
+
+if($action=="register"){
+
+$data=json_decode(file_get_contents("php://input"),true);
+
+$name=$data["name"];
+$email=$data["email"];
+$password=password_hash($data["password"],PASSWORD_DEFAULT);
+
+$sql="INSERT INTO users(name,email,password,role)
+VALUES('$name','$email','$password','patient')";
+
+if($conn->query($sql)){
+echo json_encode(["status"=>"success"]);
+}else{
+echo json_encode(["status"=>"error"]);
+}
+
+}
+
+
+/* =========================
+LOGIN
+========================= */
+
+if($action=="login"){
+
+$data=json_decode(file_get_contents("php://input"),true);
+
+$email=$data["email"];
+$password=$data["password"];
+
+$sql="SELECT * FROM users WHERE email='$email'";
+
+$result=$conn->query($sql);
+
+if($result->num_rows>0){
+
+$user=$result->fetch_assoc();
+
+if(password_verify($password,$user["password"])){
+
+echo json_encode([
+"status"=>"success",
+"user"=>$user
+]);
+
+}else{
+
+echo json_encode(["status"=>"wrong_password"]);
+
+}
+
+}else{
+
+echo json_encode(["status"=>"no_user"]);
+
+}
+
+}
+
+
+/* =========================
+GET MEDICAL RECORDS
+========================= */
+
+if($action=="records"){
+
+$user_id=$_GET["user_id"];
+
+$sql="SELECT * FROM medical_records WHERE user_id='$user_id'";
+
+$result=$conn->query($sql);
+
+$records=[];
+
+while($row=$result->fetch_assoc()){
+
+$records[]=$row;
+
+}
+
+echo json_encode($records);
+
+}
+
+
+/* =========================
+CHAT MESSAGE
+========================= */
+
+if($action=="send_message"){
+
+$data=json_decode(file_get_contents("php://input"),true);
+
+$user_id=$data["user_id"];
+$message=$data["message"];
+
+$sql="INSERT INTO chat(user_id,message)
+VALUES('$user_id','$message')";
+
+$conn->query($sql);
+
+echo json_encode(["status"=>"sent"]);
+
+}
+
+
+/* =========================
+GET CHAT
+========================= */
+
+if($action=="chat"){
+
+$result=$conn->query("SELECT * FROM chat ORDER BY id DESC LIMIT 20");
+
+$messages=[];
+
+while($row=$result->fetch_assoc()){
+$messages[]=$row;
+}
+
+echo json_encode($messages);
+
+}
+
+
+/* =========================
+APPOINTMENT
+========================= */
+
+if($action=="appointment"){
+
+$data=json_decode(file_get_contents("php://input"),true);
+
+$user=$data["user_id"];
+$date=$data["date"];
+
+$sql="INSERT INTO appointments(user_id,date)
+VALUES('$user','$date')";
+
+$conn->query($sql);
+
+echo json_encode(["status"=>"booked"]);
+
+}
+
+
+/* =========================
+ADMIN: GET USERS
+========================= */
+
+if($action=="users"){
+
+$result=$conn->query("SELECT id,name,email,role FROM users");
+
+$users=[];
+
+while($row=$result->fetch_assoc()){
+$users[]=$row;
+}
+
+echo json_encode($users);
+
+}
+
+?>
 <?php
 // Database connection
 $conn = new mysqli('DB_HOST','DB_USER','DB_PASS','DB_NAME');
