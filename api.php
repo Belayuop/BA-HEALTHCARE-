@@ -1,4 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Hospitals - BA Healthcare</title>
+<style>
+body {font-family: Arial, sans-serif; background:#f4f4f9; margin:0; padding:0;}
+header {background:#2E8B57; color:white; padding:20px; text-align:center;}
+h1 {margin:0;}
+.container {max-width:1200px; margin:20px auto; padding:10px;}
+input[type=text], select {padding:8px; width:250px; margin-right:10px; border-radius:5px; border:1px solid #ccc;}
+button {padding:8px 15px; background:#2E8B57; color:white; border:none; border-radius:5px; cursor:pointer;}
+table {width:100%; border-collapse: collapse; margin-top:20px; background:white; box-shadow:0 0 10px rgba(0,0,0,0.1);}
+th, td {padding:10px; border:1px solid #ccc; text-align:left;}
+th {background:#3CB371; color:white;}
+tr:nth-child(even) {background:#f2f2f2;}
+</style>
+</head>
+<body>
+<header>
+<h1>Search Hospitals</h1>
+<p>Find top hospitals in Ethiopia by name, type, or location</p>
+</header>
+
+<div class="container">
+<form method="GET">
+<input type="text" name="query" placeholder="Search by hospital name">
+<select name="type">
+    <option value="">All Types</option>
+    <option value="Public">Public</option>
+    <option value="Private">Private</option>
+    <option value="Specialized">Specialized</option>
+</select>
+<input type="text" name="location" placeholder="Search by location">
+<button type="submit">Search</button>
+</form>
+
 <?php
+// Database connection
+$conn = new mysqli('DB_HOST','DB_USER','DB_PASS','DB_NAME');
+if($conn->connect_error) die("Database connection failed");
+
+// Build search query
+$where = [];
+$params = [];
+
+if(!empty($_GET['query'])){
+    $q = $conn->real_escape_string($_GET['query']);
+    $where[] = "name LIKE '%$q%'";
+}
+if(!empty($_GET['type'])){
+    $t = $conn->real_escape_string($_GET['type']);
+    $where[] = "type='$t'";
+}
+if(!empty($_GET['location'])){
+    $l = $conn->real_escape_string($_GET['location']);
+    $where[] = "location LIKE '%$l%'";
+}
+
+$sql = "SELECT * FROM hospitals";
+if(count($where) > 0){
+    $sql .= " WHERE ".implode(" AND ", $where);
+}
+$sql .= " ORDER BY name ASC";
+
+$result = $conn->query($sql);
+
+if($result->num_rows > 0){
+    echo "<table>";
+    echo "<tr><th>ID</th><th>Name</th><th>Type</th><th>Location</th></tr>";
+    while($row = $result->fetch_assoc()){
+        echo "<tr>";
+        echo "<td>".$row['id']."</td>";
+        echo "<td>".$row['name']."</td>";
+        echo "<td>".$row['type']."</td>";
+        echo "<td>".$row['location']."</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
+}else{
+    echo "<p>No hospitals found.</p>";
+}
+
+$conn->close();
+?>
+</div>
+</body>
+</html><?php
 /**
  * MyHealth Hospital Backend API
  * PHP API Endpoints for Appointments, Medical Records, and Patient Management
