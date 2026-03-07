@@ -112,7 +112,83 @@ function setupAppointmentBooking() {
         });
     });
 }
+function showPage(page){
 
+document
+.querySelectorAll(".page")
+.forEach(p=>p.classList.remove("active"));
+
+document
+.getElementById(page)
+.classList.add("active");
+
+}
+
+
+function sendMessage(){
+
+let input=document.getElementById("messageInput");
+
+let msg=input.value;
+
+if(msg==="") return;
+
+let chat=document.getElementById("chatMessages");
+
+let div=document.createElement("div");
+
+div.innerHTML="<b>You:</b> "+msg;
+
+chat.appendChild(div);
+
+input.value="";
+
+setTimeout(()=>{
+
+let reply=document.createElement("div");
+
+reply.innerHTML="<b>Doctor:</b> Stay calm and follow guidance.";
+
+chat.appendChild(reply);
+
+},1000);
+
+}
+
+
+function login(){
+
+alert("Login successful");
+
+showPage("dashboard");
+
+}
+
+function register(){
+
+alert("Account created");
+
+showPage("login");
+
+}
+
+function startAI(){
+
+alert("AI Dermatology starting");
+
+}
+
+function checkDrug(){
+
+alert("Drug interaction checking");
+
+}
+
+function startTriage(){
+
+alert("AI triage assistant running");
+
+}
 function handleAppointmentBooking(e) {
     e.preventDefault();
 
@@ -858,5 +934,6 @@ document.getElementById("searchAdmin").addEventListener("input",function(){
             .forEach(p=>html+=`<li>${p.id} - ${p.name}</li>`);
     document.getElementById("adminList").innerHTML=html;
 });
+
 
 
