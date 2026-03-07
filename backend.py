@@ -1,4 +1,75 @@
-"""
+"""from flask import Flask,request,jsonify
+import random
+
+app = Flask(__name__)
+
+# -------------------------
+# AI TRIAGE
+# -------------------------
+
+@app.route("/triage",methods=["POST"])
+def triage():
+
+    data=request.json
+
+    symptoms=data.get("symptoms","")
+
+    if "chest pain" in symptoms:
+        result="Possible heart emergency. Seek hospital immediately."
+
+    elif "fever" in symptoms:
+        result="Possible infection. Monitor temperature."
+
+    else:
+        result="Condition appears mild."
+
+    return jsonify({"result":result})
+
+
+# -------------------------
+# AI DERMATOLOGY
+# -------------------------
+
+@app.route("/dermatology",methods=["POST"])
+def dermatology():
+
+    diagnosis=random.choice([
+
+        "Possible acne",
+        "Possible eczema",
+        "Possible fungal infection",
+        "Normal skin condition"
+
+    ])
+
+    return jsonify({"diagnosis":diagnosis})
+
+
+# -------------------------
+# DRUG INTERACTION
+# -------------------------
+
+@app.route("/drug-check",methods=["POST"])
+def drug_check():
+
+    data=request.json
+
+    drug1=data["drug1"]
+    drug2=data["drug2"]
+
+    if drug1=="aspirin" and drug2=="warfarin":
+
+        result="Dangerous interaction"
+
+    else:
+
+        result="No major interaction"
+
+    return jsonify({"result":result})
+
+
+if __name__=="__main__":
+    app.run(port=5000)
 MyHealth Hospital - Backend API Server
 Python Flask Application with AI Integration
 """
