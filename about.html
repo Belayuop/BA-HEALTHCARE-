@@ -3,249 +3,335 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MyHealthID Global | AI Medical Suite</title>
+<title>MyHealth Hospital System</title>
 
-<!-- Fonts & Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <style>
-:root {
-    --primary: #2563eb; --primary-light: #dbeafe; --secondary: #0ea5e9;
-    --dark: #0f172a; --sidebar: #1e293b; --success: #10b981; --warning: #f59e0b;
-    --danger: #ef4444; --white: #ffffff; --gray-50: #f8fafc; --gray-100: #f1f5f9;
-    --gray-200: #e2e8f0; --gray-600: #475569; --glass: rgba(255,255,255,0.9);
-    --shadow: 0 10px 30px -5px rgba(0,0,0,0.05);
+
+body{
+font-family:Arial;
+margin:0;
+background:#f4f6f9;
 }
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Plus Jakarta Sans',sans-serif;scroll-behavior:smooth;}
-body{background:var(--gray-50);color:var(--dark);overflow-x:hidden;}
 
-/* NAVIGATION */
-nav{position:fixed;top:0;width:100%;padding:15px 8%;display:flex;justify-content:space-between;align-items:center;background:var(--glass);backdrop-filter:blur(15px);z-index:5000;border-bottom:1px solid var(--gray-200);transition:0.4s;}
-.logo{font-size:24px;font-weight:800;display:flex;align-items:center;gap:10px;color:var(--dark);cursor:pointer;}
-.logo i{color:var(--primary);}
-.nav-links{display:flex;list-style:none;gap:30px;align-items:center;}
-.nav-links a{text-decoration:none;color:var(--gray-600);font-weight:600;font-size:14px;transition:0.3s;}
-.nav-links a:hover{color:var(--primary);}
-.btn-login{background:var(--primary);color:white !important;padding:10px 25px;border-radius:50px;box-shadow:0 4px 15px rgba(37,99,235,0.2);}
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#0a58ca;
+color:white;
+padding:15px 30px;
+}
 
-/* PAGE SECTIONS */
-.page-section{display:none;width:100%;}
-.active-section{display:block;animation:fadeIn 0.6s ease;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+.navbar ul{
+list-style:none;
+display:flex;
+gap:20px;
+}
 
-/* HERO */
-.hero{height:100vh;display:flex;align-items:center;padding:0 8%;background:linear-gradient(135deg,#f8fafc 0%,#e0f2fe 100%);position:relative;}
-.hero-text{max-width:700px;z-index:2;}
-.hero-text h1{font-size:4rem;line-height:1.1;margin-bottom:25px;font-weight:800;}
-.hero-text span{color:var(--primary);}
-.hero-text p{font-size:1.25rem;color:var(--gray-600);margin-bottom:40px;}
+.navbar a{
+color:white;
+text-decoration:none;
+}
 
-/* BENTO GRID */
-.services-section{padding:100px 8%;background:white;}
-.bento-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:20px;}
-.bento-item{background:var(--gray-50);border-radius:30px;padding:30px;border:1px solid var(--gray-200);transition:0.4s;cursor:pointer;overflow:hidden;position:relative;}
-.bento-item:hover{transform:scale(1.02);border-color:var(--primary);background:white;box-shadow:var(--shadow);}
-.bento-item h3{margin-top:15px;font-size:1.2rem;}
-.bento-item.large{grid-column:span 2;grid-row:span 2;}
-.bento-item.medium{grid-column:span 2;}
-.bento-item i{font-size:32px;color:var(--primary);}
+.container{
+max-width:1200px;
+margin:auto;
+padding:40px;
+}
 
-/* PORTAL */
-#portal-layout{display:flex;height:100vh;background:var(--gray-100);}
-.sidebar{width:280px;background:var(--sidebar);color:white;padding:30px 20px;display:flex;flex-direction:column;}
-.side-link{display:flex;align-items:center;gap:15px;padding:15px;color:#94a3b8;text-decoration:none;border-radius:12px;margin-bottom:5px;cursor:pointer;transition:0.3s;}
-.side-link:hover,.side-link.active{background:var(--primary);color:white;}
-.portal-main{flex:1;overflow-y:auto;padding:40px;}
-.portal-tab{display:none;}
-.portal-tab.active-section{display:block;}
+.hero{
+background:white;
+padding:40px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+text-align:center;
+}
 
-/* WIZARD */
-.wizard-container{background:white;border-radius:30px;padding:50px;max-width:900px;margin:0 auto;box-shadow:var(--shadow);}
-.form-step{display:none;}
-.form-step.active{display:block;}
-.form-group{margin-bottom:20px;}
-label{display:block;font-weight:700;font-size:13px;color:var(--gray-600);margin-bottom:8px;}
-input,select,textarea{width:100%;padding:14px;border-radius:12px;border:1px solid var(--gray-200);background:var(--gray-50);outline:none;transition:0.3s;}
-input:focus{border-color:var(--primary);background:white;}
-.btn-row{display:flex;justify-content:space-between;margin-top:40px;}
+.hero h1{
+color:#0a58ca;
+}
 
-/* DATA TABLE */
-.custom-table{width:100%;border-collapse:collapse;margin-top:20px;background:white;border-radius:20px;overflow:hidden;}
-.custom-table th{background:var(--gray-100);padding:15px;text-align:left;font-size:13px;color:var(--gray-600);}
-.custom-table td{padding:18px 15px;border-bottom:1px solid var(--gray-100);font-size:14px;}
-td.ward-cell{color:var(--primary);font-weight:600;cursor:pointer;position:relative;user-select:none;}
-td.ward-cell:hover{text-decoration:underline;}
-.ward-popup{position:absolute;background:white;border:1px solid #cbd5e1;border-radius:8px;box-shadow:0 6px 12px rgba(0,0,0,0.15);padding:12px 20px;font-size:14px;width:240px;max-height:280px;overflow-y:auto;z-index:10000;user-select:none;}
-.ward-popup ul{list-style:none;padding-left:0;margin:0;}
-.ward-popup ul li{padding:8px 0;border-bottom:1px solid #e2e8f0;}
-.ward-popup ul li:last-child{border-bottom:none;}
+.services{
+display:none;
+margin-top:30px;
+}
+
+.service-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.service-card{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.service-card i{
+font-size:35px;
+color:#0a58ca;
+}
+
+.dashboard{
+display:none;
+margin-top:30px;
+}
+
+.dashboard-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+button{
+background:#0a58ca;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:5px;
+cursor:pointer;
+}
+
+.login-box,.register-box{
+display:none;
+max-width:400px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+input{
+width:100%;
+padding:10px;
+margin:10px 0;
+}
+
 </style>
 </head>
+
 <body>
 
-<!-- NAVIGATION -->
-<nav id="main-nav">
-    <div class="logo" onclick="showSection('home')"><i class="fas fa-microchip"></i> MyHealthID</div>
-    <ul class="nav-links">
-        <li><a href="javascript:void(0)" onclick="showSection('home')">Home</a></li>
-        <li><a href="javascript:void(0)" onclick="showSection('about')">About</a></li>
-        <li><a href="javascript:void(0)" onclick="showSection('services')">Services</a></li>
-        <li><a href="javascript:void(0)" onclick="showSection('hospital-search')">Find Hospitals</a></li>
-        <li><a href="javascript:void(0)" onclick="showSection('account-creation')" class="btn-login">Register</a></li>
-        <li><a href="javascript:void(0)" onclick="enterPortal()" class="btn-login">Portal</a></li>
-    </ul>
-</nav>
+<!-- NAVBAR -->
 
-<!-- LANDING / HERO -->
-<div id="landing-wrapper">
-<section id="home" class="page-section active-section hero">
-    <div class="hero-text">
-        <p style="font-weight:700;color:var(--primary);letter-spacing:2px;margin-bottom:15px;">2026 INTERNATIONAL STANDARD</p>
-        <h1>Unified <span>AI Medical</span> Ecosystem</h1>
-        <p>An enterprise-grade platform combining Digital Clerking, AI Diagnostics, and Live Patient-Doctor interaction.</p>
-        <div style="display:flex;gap:20px;">
-            <button class="btn-login" style="padding:18px 40px;font-size:16px;" onclick="enterPortal()">Get Started</button>
-            <button style="background:transparent;border:1px solid var(--gray-200);padding:18px 40px;border-radius:50px;font-weight:700;" onclick="showSection('services')">View Services</button>
-        </div>
-    </div>
-</section>
+<div class="navbar">
 
-<!-- ABOUT -->
-<section id="about" class="page-section" style="padding:120px 8%;">
-    <h2 style="font-size:3rem;margin-bottom:40px;">Global Healthcare, Redefined</h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;">
-        <div>
-            <p style="font-size:1.2rem;color:var(--gray-600);line-height:1.8;">
-                MyHealthID solves fragmentation of medical data. Secure, encrypted, and AI-integrated for hospitals & patients worldwide.
-            </p>
-        </div>
-        <div class="bento-item" style="background:var(--dark);color:white;">
-            <h3>99.9% Security</h3>
-            <p>End-to-end encryption for every patient record.</p>
-        </div>
-    </div>
-</section>
+<h2><i class="fas fa-heartbeat"></i> MyHealth</h2>
 
-<!-- SERVICES -->
-<section id="services" class="page-section services-section">
-    <h2 style="font-size:2.5rem;margin-bottom:50px;">Our Enterprise Suite</h2>
-    <div class="bento-grid">
-        <div class="bento-item large" onclick="enterPortal()"><i class="fas fa-stethoscope"></i><h3>Digital Clerking</h3><p>Standardized clinical history-taking.</p></div>
-        <div class="bento-item medium" onclick="enterPortal()"><i class="fas fa-brain"></i><h3>Dermatology AI</h3><p>High-accuracy skin diagnostics.</p></div>
-        <div class="bento-item" onclick="enterPortal()"><i class="fas fa-vial"></i><h3>Lab Analysis</h3><p>Automated report readings.</p></div>
-        <div class="bento-item" onclick="enterPortal()"><i class="fas fa-pills"></i><h3>Drug Interaction</h3><p>AI Compatibility check.</p></div>
-        <div class="bento-item medium" onclick="enterPortal()"><i class="fas fa-video"></i><h3>Live Interaction</h3><p>Doctor-to-Patient video link.</p></div>
-    </div>
-</section>
+<ul>
 
-<!-- HOSPITAL SEARCH -->
-<section id="hospital-search" class="page-section services-section">
-    <h2 style="font-size:2.5rem;margin-bottom:50px;">Find Hospitals Near You</h2>
-    <input type="text" id="hospitalInput" placeholder="Search hospitals by name, specialty or city..." style="width:100%; padding:15px; border-radius:12px; border:1px solid var(--gray-200); margin-bottom:30px;">
-    <div id="hospitalResults" class="bento-grid"></div>
-</section>
+<li><a href="#" onclick="showHome()">Home</a></li>
 
-<!-- ACCOUNT CREATION -->
-<section id="account-creation" class="page-section services-section">
-    <h2 style="font-size:2.5rem;margin-bottom:50px;">Create Your Account</h2>
-    <div class="wizard-container" style="max-width:600px;">
-        <div class="form-group"><label>Full Name</label><input type="text" id="accName"></div>
-        <div class="form-group"><label>Email</label><input type="email" id="accEmail"></div>
-        <div class="form-group"><label>Password</label><input type="password" id="accPassword"></div>
-        <div class="form-group"><label>Role</label><select id="accRole"><option value="patient">Patient</option><option value="doctor">Doctor</option></select></div>
-        <button class="btn-login" onclick="createAccount()">Create Account</button>
-        <p id="accMessage" style="margin-top:15px;color:var(--primary); font-weight:700;"></p>
-    </div>
-</section>
+<li><a href="#" onclick="toggleServices()">Services</a></li>
 
-<!-- SAMPLE PATIENT TABLE -->
-<section id="patient-table" class="page-section services-section">
-    <h2 style="font-size:2.5rem;margin-bottom:50px;">Patient Records</h2>
-    <table class="custom-table">
-        <thead>
-            <tr>
-                <th>MRN#</th><th>Date Admitted</th><th>Evaluation Date</th><th>Full Name</th>
-                <th>Age</th><th>Gender</th><th>Phone</th><th>Admission Dx</th>
-                <th>Ward</th><th>Room/Bed</th><th>Notes</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>P001</td><td>01-03-2026</td><td>02-03-2026</td><td>Sample Patient 1</td><td>35</td>
-                <td>F</td><td>0912001111</td><td>Checkup</td><td class="ward-cell">Medical</td>
-                <td>1/1</td><td>None</td>
-            </tr>
-            <tr>
-                <td>P002</td><td>03-03-2026</td><td>03-03-2026</td><td>Sample Patient 2</td><td>28</td>
-                <td>M</td><td>0912002222</td><td>Post Surgery</td><td class="ward-cell">Surgical</td>
-                <td>2/5</td><td>Follow-up</td>
-            </tr>
-            <tr>
-                <td>P003</td><td>05-03-2026</td><td>06-03-2026</td><td>Sample Patient 3</td><td>5</td>
-                <td>M</td><td>0912003333</td><td>Fever</td><td class="ward-cell">Pediatrics</td>
-                <td>3/2</td><td>Observation</td>
-            </tr>
-            <tr>
-                <td>P004</td><td>07-03-2026</td><td>07-03-2026</td><td>Sample Patient 4</td><td>32</td>
-                <td>F</td><td>0912004444</td><td>Delivery</td><td class="ward-cell">Maternity</td>
-                <td>1/3</td><td>Normal</td>
-            </tr>
-            <tr>
-                <td>P005</td><td>08-03-2026</td><td>08-03-2026</td><td>Sample Patient 5</td><td>40</td>
-                <td>F</td><td>0912005555</td><td>Heart</td><td class="ward-cell">ICU</td>
-                <td>2/1</td><td>Critical</td>
-            </tr>
-        </tbody>
-    </table>
-</section>
+<li><a href="#" onclick="showLogin()">Login</a></li>
 
-<!-- WARD POPUP ELEMENT -->
-<div class="ward-popup" style="display:none;"></div>
+<li><a href="#" onclick="showRegister()">Register</a></li>
 
-<!-- PORTAL LAYOUT (hidden by default) -->
-<div id="portal-layout" class="hidden">
-    <!-- sidebar and portal content here, as in your previous code -->
+<li><a href="#" onclick="showDashboard()">Dashboard</a></li>
+
+</ul>
+
 </div>
 
+
+<div class="container">
+
+<!-- HERO / HOME -->
+
+<div class="hero" id="home">
+
+<h1>Welcome to MyHealth Hospital System</h1>
+
+<p>AI Powered Healthcare Platform</p>
+
+<p>Secure National Health ID • Smart Diagnosis • 24/7 Doctors</p>
+
+</div>
+
+
+<!-- SERVICES (hidden until click) -->
+
+<div class="services" id="services">
+
+<h2>Our Premium Services</h2>
+
+<div class="service-grid">
+
+<div class="service-card">
+<i class="fas fa-robot"></i>
+<h3>AI Dermatology Analysis</h3>
+<p>Advanced skin condition analysis using AI.</p>
+<button>Start Analysis</button>
+</div>
+
+<div class="service-card">
+<i class="fas fa-user-md"></i>
+<h3>Live Doctor Chat</h3>
+<p>Consult verified healthcare professionals.</p>
+<button>Start Chat</button>
+</div>
+
+<div class="service-card">
+<i class="fas fa-calendar"></i>
+<h3>Smart Appointments</h3>
+<p>Schedule appointments with doctors.</p>
+<button>Book Now</button>
+</div>
+
+<div class="service-card">
+<i class="fas fa-pills"></i>
+<h3>Drug Interaction Checker</h3>
+<p>Check medications for dangerous combinations.</p>
+<button>Check Drugs</button>
+</div>
+
+<div class="service-card">
+<i class="fas fa-file-medical"></i>
+<h3>Medical History Portal</h3>
+<p>Access complete electronic health records.</p>
+<button>View Records</button>
+</div>
+
+<div class="service-card">
+<i class="fas fa-id-card"></i>
+<h3>Secure Health ID</h3>
+<p>Unified national health identification system.</p>
+<button>Learn More</button>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- DASHBOARD -->
+
+<div class="dashboard" id="dashboard">
+
+<h2>Hospital Dashboard</h2>
+
+<div class="dashboard-grid">
+
+<div class="card">
+<h3>Patient Medical History</h3>
+<p>Electronic Health Record (EHR)</p>
+</div>
+
+<div class="card">
+<h3>Hospital Ward Selector</h3>
+<p>Medical • Surgical • ICU • NICU</p>
+</div>
+
+<div class="card">
+<h3>Doctor Dashboard</h3>
+<p>Manage patient consultations</p>
+</div>
+
+<div class="card">
+<h3>Admin Dashboard</h3>
+<p>Hospital system management</p>
+</div>
+
+<div class="card">
+<h3>AI Triage Assistant</h3>
+<p>Automatic emergency assessment</p>
+</div>
+
+<div class="card">
+<h3>Hospital Database</h3>
+<p>Patient records & appointments</p>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- LOGIN -->
+
+<div class="login-box" id="login">
+
+<h2>Login</h2>
+
+<input placeholder="Email">
+
+<input placeholder="Password" type="password">
+
+<button>Login</button>
+
+</div>
+
+
+<!-- REGISTER -->
+
+<div class="register-box" id="register">
+
+<h2>Create Account</h2>
+
+<input placeholder="Full Name">
+
+<input placeholder="Email">
+
+<input placeholder="Health ID">
+
+<input placeholder="Password" type="password">
+
+<button>Register</button>
+
+</div>
+
+
+</div>
+
+
 <script>
-/* NAVIGATION */
-function showSection(sectionId){
-    document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active-section'));
-    document.getElementById(sectionId).classList.add('active-section');
-    window.scrollTo(0,0);
+
+function toggleServices(){
+
+document.getElementById("services").style.display="block"
+
 }
 
-/* PORTAL */
-function enterPortal(){
-    document.getElementById('landing-wrapper').classList.add('hidden');
-    document.getElementById('portal-layout').style.display='flex';
+function showDashboard(){
+
+document.getElementById("dashboard").style.display="block"
+
 }
 
-/* SAMPLE ACCOUNT CREATION */
-function createAccount(){
-    const name=document.getElementById('accName').value;
-    const email=document.getElementById('accEmail').value;
-    const role=document.getElementById('accRole').value;
-    if(!name||!email){document.getElementById('accMessage').innerText='Fill all fields';return;}
-    document.getElementById('accMessage').innerText=`Account created for ${name} as ${role}`;
+function showLogin(){
+
+document.getElementById("login").style.display="block"
+
 }
 
-/* CLICKABLE WARD POPUP */
-const wards=["Medical","Surgical","Pediatrics","Maternity","Gynecology","OB/GYN","Emergency / A&E","ICU","NICU","Orthopedic","Internal Medicine","Psychiatric","OPD"];
-const popup=document.querySelector('.ward-popup');
-document.querySelectorAll('td.ward-cell').forEach(cell=>{
-    cell.addEventListener('click', e=>{
-        const rect=cell.getBoundingClientRect();
-        popup.innerHTML=`<ul>${wards.map(w=>`<li>${w}</li>`).join('')}</ul>`;
-        let leftPos=window.scrollX+rect.left;
-        const maxRight=window.scrollX+window.innerWidth-popup.offsetWidth-10;
-        if(leftPos>maxRight) leftPos=maxRight;
-        popup.style.top=window.scrollY+rect.bottom+5+'px';
-        popup.style.left=leftPos+'px';
-        popup.style.display='block';
-    });
-});
-document.addEventListener('click', e=>{
-    if(!popup.contains(e.target)&&!
+function showRegister(){
+
+document.getElementById("register").style.display="block"
+
+}
+
+function showHome(){
+
+location.reload()
+
+}
+
+</script>
+
+
+</body>
+</html>
